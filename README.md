@@ -2,8 +2,19 @@
 
 <!-- 프로젝트 대표 이미지 -->
 <div align="center">
-  <img src="assets/images/logo.png" alt="하나증권 THE NEXT 로고" width="800"/>
+  <img src="assets/images/logo.png" alt="하나증권 : THE NEXT 로고" width="800"/>
 </div>
+
+<br/>
+
+## 👋 하나증권 : THE NEXT 프로젝트의 저장소를 방문해주셔서 감사합니다!
+
+> 안녕하세요! 하나증권 : THE NEXT 프로젝트 저장소에 오신 것을 환영합니다.
+>
+> 현재 코드와 산출물을 보완하는 중이며, 프로젝트 화면은 아래 목차의 [디자인](#6-디자인) 섹션에 있는 Figma 링크를 통해 확인하실 수 있습니다.
+>
+> 이 README를 통해 프로젝트의 전반적인 구조와 사용 방법을 확인하실 수 있습니다.
+> 궁금한 점이나 개선 제안이 있으시다면 언제든지 [연락처](#10-연락처)로 연락 주세요!
 
 <br/>
 
@@ -12,11 +23,13 @@
 1. [프로젝트 소개](#1-프로젝트-소개)
 2. [주요 기능](#2-주요-기능)
 3. [기술 스택](#3-기술-스택)
-4. [프로젝트 구조](#4-프로젝트-구조)
-5. [시작하기](#5-시작하기)
-6. [개발 환경 설정](#6-개발-환경-설정)
-7. [사용 방법](#7-사용-방법)
-8. [연락처](#8-연락처)
+4. [서비스 아키텍처](#4-서비스-아키텍처)
+5. [프로젝트 구조](#5-프로젝트-구조)
+6. [디자인](#6-디자인)
+7. [시작하기](#7-시작하기)
+8. [개발 환경 설정](#8-개발-환경-설정)
+9. [사용 방법](#9-사용-방법)
+10. [연락처](#10-연락처)
 
 <br/>
 
@@ -37,28 +50,55 @@
 ## 3. 기술 스택
 
 ### 3-1. Frontend
-- **Framework**: React
-- **Language**: TypeScript
-- **Styling**: Vanilla CSS
+<div>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+</div>
 
 ### 3-2. Backend
-- **Framework**: Spring Boot, Django
-- **Language**: Java, Python
-- **Authentication**: WebAuthn
-- **API**: RESTful API / WebSocket
+<div>
+  <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot"/>
+  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
+  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/WebAuthn-3423A6?style=for-the-badge&logo=webauthn&logoColor=white" alt="WebAuthn"/>
+  <img src="https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white" alt="WebSocket"/>
+</div>
 
 ### 3-3. Database
-- **Primary DB**: Oracle
-- **Cache**: Redis
+<div>
+  <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
+</div>
 
 ### 3-4. DevOps
-- **Container**: Docker
-- **CI/CD**: GitHub Actions
-- **Cloud**: AWS EC2
+<div>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+  <img src="https://img.shields.io/badge/AWS%20EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white" alt="AWS EC2"/>
+</div>
 
 <br/>
 
-## 4. 프로젝트 구조
+## 4. 서비스 아키텍처
+
+### 4-1. 시스템 구성도
+
+<div align="center">
+  <img src="assets/images/architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
+</div>
+
+시스템은 크게 Frontend, Backend, Database 계층으로 구성되어 있으며, 각 계층은 다음과 같은 역할을 수행합니다:
+
+- **Frontend Layer**: React 기반의 SPA(Single Page Application)로 사용자 인터페이스 제공
+- **Backend Layer**: Spring Boot와 Django를 활용한 RESTful API 및 WebSocket 통신
+- **Database Layer**: Oracle을 주 데이터베이스로, Redis를 캐싱 레이어로 활용
+- **DevOps**: Docker 컨테이너화 및 AWS EC2 기반 배포, GitHub Actions를 통한 CI/CD 자동화
+
+<br/>
+
+## 5. 프로젝트 구조
 
 ```
 HanaSecurities-TheNext/
@@ -85,11 +125,20 @@ HanaSecurities-TheNext/
 
 <br/>
 
-## 5. 시작하기
+## 6. 디자인
 
-### 5-1. 사전 요구사항
+### 6-1. Figma
+프로젝트의 UI/UX 디자인은 Figma에서 확인하실 수 있습니다.
 
-### 5-2. 설치
+- **Figma 링크**: [하나증권 : THE NEXT 디자인 보기](https://www.figma.com/design/mwIe1WUHzbtdbXqBR7ZmY8/%ED%95%98%EB%82%98%EC%A6%9D%EA%B6%8C---THE-NEXT?node-id=0-1&t=L15dglw3FgatGUZS-1)
+
+<br/>
+
+## 7. 시작하기
+
+### 7-1. 사전 요구사항
+
+### 7-2. 설치
 
 1. 레포지토리 클론
 
@@ -111,11 +160,11 @@ yarn install
 
 <br/>
 
-## 6. 개발 환경 설정
+## 8. 개발 환경 설정
 
-### 6-1. 환경 변수 설정
+### 8-1. 환경 변수 설정
 
-### 6-2. 개발 서버 실행
+### 8-2. 개발 서버 실행
 
 **Frontend**
 ```bash
@@ -125,13 +174,13 @@ yarn dev
 
 <br/>
 
-## 7. 사용 방법
+## 9. 사용 방법
 
 1. 브라우저에서 `http://localhost:5173` 접속
 
 <br/>
 
-## 8. 연락처
+## 10. 연락처
 
 프로젝트 관련 문의사항이 있으시면 언제든지 아래로 연락주세요!
 
