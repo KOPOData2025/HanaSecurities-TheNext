@@ -1,0 +1,45 @@
+.investment-opinion-tab-skeleton {
+  padding: 16px;
+}
+
+.opinion-skeleton-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.opinion-skeleton-card {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opinion-skeleton-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opinion-skeleton-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.opinion-skeleton-item-left,
+.opinion-skeleton-item-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.opinion-skeleton-item-right {
+  align-items: flex-end;
+}

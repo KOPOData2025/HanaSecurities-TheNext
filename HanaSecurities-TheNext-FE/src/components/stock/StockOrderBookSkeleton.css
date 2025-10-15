@@ -1,0 +1,133 @@
+.stock-orderbook-skeleton {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.orderbook-skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.orderbook-skeleton-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.orderbook-skeleton-left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  height: 100%;
+}
+
+.orderbook-skeleton-orders {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 4px;
+  height: 400px;
+}
+
+.orderbook-skeleton-order-row {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+}
+
+.orderbook-skeleton-transactions {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  gap: 4px;
+  height: 400px;
+}
+
+.orderbook-skeleton-transaction-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  margin-bottom: 8px;
+}
+
+.orderbook-skeleton-transaction-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+
+.orderbook-skeleton-center {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  height: 100%;
+}
+
+.orderbook-skeleton-price-row {
+  flex: 0 0 auto;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.orderbook-skeleton-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.orderbook-skeleton-market-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 400px;
+  padding: 8px;
+  gap: 4px;
+}
+
+.orderbook-skeleton-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.orderbook-skeleton-button {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 8px 0;
+}
+
+.orderbook-skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.orderbook-skeleton-summary {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 20px;
+  min-height: 35px;
+  background: #ffffff;
+  margin-bottom: 5px;
+}

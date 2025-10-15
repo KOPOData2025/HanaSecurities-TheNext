@@ -1,0 +1,155 @@
+.bnpl-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.bnpl-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.bnpl-modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  position: relative;
+}
+
+.bnpl-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+
+.bnpl-modal-header {
+  margin-bottom: 24px;
+}
+
+.bnpl-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+
+.bnpl-highlight {
+  color: #008485;
+}
+
+.bnpl-modal-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+.bnpl-modal-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.bnpl-modal-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  min-height: 120px;
+}
+
+.bnpl-modal-section.section-one {
+  background: #E8F5F4;
+}
+
+.bnpl-modal-section.section-two {
+  background: #E8F5F4;
+}
+
+.bnpl-section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #008485;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.bnpl-section-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  position: absolute;
+  right: 30px;
+  top: 45px;
+}
+
+.bnpl-section-icon.tossface {
+  font-family: Tossface;
+  font-size: 48px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 30px;
+  top: 45px;
+}
+
+.bnpl-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  padding-right: 60px;
+}
+
+.bnpl-section-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+.bnpl-modal-confirm {
+  width: 100%;
+  padding: 14px;
+  background: #008485;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bnpl-modal-confirm:active {
+  background: #006565;
+}

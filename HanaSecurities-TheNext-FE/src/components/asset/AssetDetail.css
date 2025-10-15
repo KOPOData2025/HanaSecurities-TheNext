@@ -1,0 +1,395 @@
+.asset-detail-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f5f6f8;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.asset-detail-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  height: 56px;
+}
+
+.asset-detail-header .back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #000;
+}
+
+.asset-detail-header .page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 12px;
+}
+
+.asset-detail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #f5f6f8;
+  padding-bottom: 60px;
+}
+
+.asset-type-selector {
+  padding: 16px 20px;
+  background: white;
+}
+
+.dropdown-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-button:hover {
+  background: #f8f9fa;
+}
+
+.dropdown-button.active {
+  border-color: #000;
+}
+
+.dropdown-button span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+
+.dropdown-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 201;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  height: 56px;
+}
+
+.modal-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #000;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 12px;
+}
+
+.modal-selector {
+  padding: 16px 20px;
+  background: white;
+}
+
+.modal-dropdown-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-dropdown-button span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dropdown-options {
+  padding: 8px 0;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-option:hover:not(.disabled) {
+  background: #f5f6f8;
+}
+
+.dropdown-option.disabled {
+  color: #999;
+  cursor: default;
+  padding: 12px 20px;
+  font-size: 14px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.dropdown-option.selected {
+  font-weight: 600;
+}
+
+.dropdown-option span {
+  flex: 1;
+}
+
+.asset-total-section {
+  padding: 24px 20px;
+  background: white;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.total-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.info-icon {
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.total-amount {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.total-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.change-amount {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.change-amount.positive {
+  color: #ff5252;
+}
+
+.change-amount.negative {
+  color: #4dabf7;
+}
+
+.change-percent {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.change-percent.positive {
+  color: #ff5252;
+}
+
+.change-percent.negative {
+  color: #4dabf7;
+}
+
+.update-time {
+  font-size: 13px;
+  color: #999;
+}
+
+.holdings-section {
+  margin-top: 8px;
+  background: white;
+  flex: 1;
+}
+
+.holdings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.holdings-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.sort-button:hover {
+  background: #f5f6f8;
+}
+
+.holdings-list {
+  padding: 0;
+}
+
+.holding-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background: white;
+  transition: background-color 0.2s;
+}
+
+.holding-item:hover {
+  background: #fafafa;
+}
+
+.holding-item:last-child {
+  border-bottom: none;
+}
+
+.holding-header {
+  margin-bottom: 8px;
+}
+
+.holding-code {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+}
+
+.holding-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.holding-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holding-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  flex: 1;
+  margin-right: 12px;
+}
+
+.holding-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  text-align: right;
+}
+
+.holding-change-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.holding-change {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.holding-change.positive {
+  color: #ff5252;
+}
+
+.holding-change.negative {
+  color: #4dabf7;
+}
+
+.holding-percent {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.holding-percent.positive {
+  color: #ff5252;
+}
+
+.holding-percent.negative {
+  color: #4dabf7;
+}
+
+
+.asset-detail-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

@@ -1,0 +1,451 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.product-pension-container {
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+.category-section {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #fff5f5;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.category-title .emoji {
+  font-size: 18px;
+}
+
+.category-title .subtitle {
+  margin-left: auto;
+  color: #666;
+  font-size: 12px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  cursor: pointer;
+}
+
+.category-icon {
+  width: 48px;
+  height: 48px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.category-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.category-sublabel {
+  font-size: 11px;
+  color: #999;
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.section-tabs {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.section-tabs-full {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tab {
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+  padding-bottom: 2px;
+}
+
+.tab.active {
+  color: #000;
+  font-weight: 600;
+  border-bottom: 2px solid #000;
+}
+
+.more {
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sub-header {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+
+.popular-section,
+.overseas-section,
+.overseas-isa {
+  background: white;
+  padding: 20px 16px;
+  margin-bottom: 8px;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-item:last-child {
+  border-bottom: none;
+}
+
+.product-icon {
+  width: 40px;
+  height: 40px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.product-subtitle {
+  font-size: 12px;
+  color: #999;
+}
+
+.product-rate {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.more-button {
+  width: 100%;
+  padding: 12px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 8px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.fund-cards {
+  background: white;
+  padding: 20px 16px;
+  margin-bottom: 8px;
+}
+
+.fund-card-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.fund-card {
+  min-width: 280px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.fund-card.card1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.fund-card.card2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.card-progress {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.promotion-banner {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.banner-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+}
+
+.banner-emoji {
+  font-size: 32px;
+}
+
+.banner-text div:first-child {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.banner-text div:last-child {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+.pension-summary {
+  background: white;
+  padding: 20px 16px;
+  margin-bottom: 8px;
+}
+
+.pension-cards {
+  display: flex;
+  gap: 8px;
+}
+
+.pension-card {
+  flex: 1;
+  padding: 16px 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.pension-label {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.pension-name {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  min-height: 32px;
+}
+
+.pension-growth {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+
+.pension-products {
+  background: white;
+  padding: 20px 16px;
+  margin-bottom: 8px;
+}
+
+.pension-product-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pension-product-item:last-child {
+  border-bottom: none;
+}
+
+.pension-product-icon {
+  width: 40px;
+  height: 40px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.pension-product-info {
+  flex: 1;
+}
+
+.pension-product-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.pension-product-subtitle {
+  font-size: 12px;
+  color: #999;
+}
+
+.pension-product-value {
+  text-align: right;
+}
+
+.pension-product-value .value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.pension-product-value .change {
+  font-size: 12px;
+}
+
+.pension-product-value .change.up {
+  color: #e74c3c;
+}
+
+.pension-product-value .change.down {
+  color: #3498db;
+}
+
+
+.bottom-info {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.info-icon {
+  font-size: 24px;
+}
+
+.info-text {
+  font-size: 14px;
+  color: #333;
+}
+
+
+@media (max-width: 380px) {
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  .category-item {
+    padding: 8px 4px;
+  }
+  
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .category-label {
+    font-size: 12px;
+  }
+}

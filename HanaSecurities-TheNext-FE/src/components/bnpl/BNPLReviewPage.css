@@ -1,0 +1,178 @@
+.bnpl-review-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bnpl-review-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.bnpl-review-header-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bnpl-review-hana-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.bnpl-review-pay-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #008485;
+}
+
+.bnpl-review-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-review-close {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+
+.bnpl-review-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  margin-top: 60px;
+  gap: 8px;
+}
+
+.bnpl-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.bnpl-progress-step.completed .bnpl-step-number {
+  background: #008485;
+  color: white;
+  border-color: #008485;
+}
+
+.bnpl-progress-step.completed .bnpl-step-label {
+  color: #008485;
+}
+
+.bnpl-progress-step.active .bnpl-step-number {
+  background: #008485;
+  color: white;
+  border-color: #008485;
+}
+
+.bnpl-progress-step.active .bnpl-step-label {
+  color: #008485;
+  font-weight: 600;
+}
+
+.bnpl-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bnpl-step-label {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.bnpl-progress-line {
+  width: 40px;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 -4px;
+  margin-bottom: 24px;
+}
+
+.bnpl-progress-line.active {
+  background: #008485;
+}
+
+
+.bnpl-review-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.bnpl-review-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.bnpl-loading-spinner {
+  width: 300px;
+  height: 100px;
+  margin-bottom: 32px;
+}
+
+.bnpl-review-message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 16px 0;
+}
+
+.bnpl-dots {
+  display: inline-block;
+  width: 30px;
+  text-align: left;
+  margin-left: 2px;
+}
+
+.bnpl-review-submessage {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}

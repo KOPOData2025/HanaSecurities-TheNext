@@ -1,0 +1,505 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.orderbook-container {
+  width: 100%;
+  background: #fff;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+
+.orderbook-header {
+  padding: 10px 16px;
+  background: #fff;
+}
+
+.stock-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stock-codes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.code-primary {
+  color: #666;
+  font-weight: 500;
+}
+
+.code-secondary,
+.code-type {
+  color: #999;
+  font-size: 11px;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #999;
+}
+
+.price-section {
+  margin-bottom: 8px;
+}
+
+.main-price {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.price-icon {
+  color: #E60000;
+  font-size: 10px;
+}
+
+.current-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #E60000;
+}
+
+.price-change {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.change-arrow {
+  color: #E60000;
+  font-size: 12px;
+}
+
+.change-amount {
+  color: #E60000;
+}
+
+.change-percent {
+  color: #E60000;
+}
+
+.market-cap {
+  font-size: 12px;
+  color: #666;
+}
+
+.mini-chart {
+  position: relative;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.chart-time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+}
+
+.chart-period {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: #666;
+}
+
+.chart-indicators {
+  display: flex;
+  gap: 8px;
+  color: #999;
+}
+
+
+.orderbook-table {
+  background: #fff;
+  padding: 0;
+}
+
+.order-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 60px 80px;
+  height: 32px;
+  align-items: center;
+  position: relative;
+}
+
+.ask-row {
+  background: linear-gradient(to right, rgba(0, 102, 255, 0.08) 0%, rgba(0, 102, 255, 0.03) 100%);
+}
+
+.bid-row {
+  background: linear-gradient(to right, rgba(230, 0, 0, 0.03) 0%, rgba(230, 0, 0, 0.08) 100%);
+}
+
+.order-quantity-left,
+.order-quantity-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  position: relative;
+}
+
+.order-quantity-left {
+  justify-content: flex-end;
+}
+
+.order-quantity-right {
+  justify-content: flex-start;
+}
+
+.quantity-bar-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.order-quantity-left .quantity-bar-container {
+  justify-content: flex-end;
+  right: 0;
+}
+
+.order-quantity-right .quantity-bar-container {
+  justify-content: flex-start;
+  left: 0;
+}
+
+.quantity-bar {
+  height: 100%;
+  opacity: 0.15;
+}
+
+.ask-bar {
+  background: #0066FF;
+}
+
+.bid-bar {
+  background: #E60000;
+}
+
+.quantity-text {
+  font-size: 12px;
+  color: #333;
+  z-index: 1;
+  position: relative;
+  font-weight: 500;
+}
+
+.order-price-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.order-price {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ask-price {
+  color: #0066FF;
+}
+
+.bid-price {
+  color: #E60000;
+}
+
+.order-percent-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-percent {
+  font-size: 11px;
+  color: #E60000;
+}
+
+.order-empty {
+  width: 80px;
+}
+
+
+.current-price-divider {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid #E60000;
+  border-left: none;
+  border-right: none;
+  margin: 4px 0;
+}
+
+.divider-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dots {
+  color: #999;
+  font-size: 12px;
+  position: absolute;
+  left: 20px;
+}
+
+.current-price-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.current-price-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #E60000;
+}
+
+.current-change-percent {
+  font-size: 12px;
+  color: #E60000;
+}
+
+.current-quantity {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+}
+
+.current-count {
+  font-size: 12px;
+  color: #333;
+}
+
+
+.broker-info {
+  padding: 12px 16px;
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+}
+
+.broker-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  margin-bottom: 12px;
+}
+
+.broker-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.broker-special {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.broker-special-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.price-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.broker-label {
+  color: #666;
+  flex-shrink: 0;
+}
+
+.broker-value {
+  color: #333;
+  font-weight: 500;
+  text-align: right;
+}
+
+.broker-value.red {
+  color: #E60000;
+}
+
+.broker-value.blue {
+  color: #0066FF;
+}
+
+.broker-percent {
+  color: #999;
+  font-size: 11px;
+}
+
+.more-info-btn {
+  width: 100%;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.more-info-btn:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #999;
+}
+
+
+.orderbook-summary {
+  padding: 0;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.summary-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 8px 16px 4px;
+  font-size: 11px;
+  color: #666;
+}
+
+.summary-left {
+  text-align: left;
+}
+
+.summary-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.summary-right {
+  text-align: right;
+}
+
+.summary-time {
+  color: #333;
+  font-weight: 500;
+}
+
+.summary-values {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 0 16px 8px;
+  align-items: center;
+}
+
+.summary-bid,
+.summary-ask {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.summary-bid {
+  text-align: left;
+}
+
+.summary-ask {
+  text-align: right;
+}
+
+.summary-center-values {
+  display: flex;
+  justify-content: center;
+}
+
+.total-button {
+  background: #f0f0f0;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 11px;
+  color: #666;
+  cursor: pointer;
+}
+
+.balance-bar {
+  display: flex;
+  height: 20px;
+  margin: 0 16px 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  background: #f5f5f5;
+}
+
+.bid-balance {
+  background: rgba(230, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8px;
+}
+
+.ask-balance {
+  background: rgba(0, 102, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 8px;
+}
+
+.bar-center {
+  position: absolute;
+  left: 56%;
+  transform: translateX(-50%);
+  color: #333;
+  font-size: 10px;
+  z-index: 1;
+}
+
+.bid-balance span,
+.ask-balance span {
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+}

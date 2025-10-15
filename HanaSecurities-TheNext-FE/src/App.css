@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+html {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  max-width: 428px;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  max-width: 428px;
+  margin: 0 auto;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  
+  position: relative;
+}
+
+
+.main-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+.main-content > *:first-child {
+  margin-top: 0;
+}
+
+.main-content > *:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 428px) {
+  .app {
+    max-width: 100%;
+  }
+
+  .bottom-nav {
+    max-width: 100%;
+  }
+}

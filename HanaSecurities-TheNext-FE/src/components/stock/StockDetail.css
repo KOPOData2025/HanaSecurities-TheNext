@@ -1,0 +1,667 @@
+.stock-detail-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+  overflow: hidden;
+  padding-bottom: 60px; 
+}
+
+.stock-detail-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.stock-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  height: 56px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #333;
+}
+
+.stock-search {
+  flex: 1;
+  position: relative;
+}
+
+.stock-search-input {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 2px solid #000;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.header-actions button {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0 !important;
+}
+
+.menu-dropdown {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px !important;
+}
+
+
+.stock-info {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.stock-basic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+.stock-code {
+  font-weight: 600;
+  color: #333;
+}
+
+.stock-label {
+  background: #ff4444;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.stock-meta {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.stock-price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.current-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #E60000;
+}
+
+.change-arrow {
+  color: #E60000;
+  font-size: 16px;
+}
+
+.change {
+  font-size: 18px;
+  color: #E60000;
+}
+
+.change-percent {
+  font-size: 18px;
+  color: #E60000;
+}
+
+.volume-info {
+  font-size: 14px;
+  color: #666;
+}
+
+
+.stock-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  position: relative;
+}
+
+.stock-tab {
+  flex: 1;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+}
+
+.stock-tab.active {
+  color: #000;
+  font-weight: 600;
+}
+
+.stock-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000;
+}
+
+.tab-arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+.stock-chart-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.chart-periods {
+  display: flex;
+  gap: 4px;
+}
+
+.period-btn {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #666;
+}
+
+.period-btn.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.stock-chart-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chart-actions button {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.ma-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+}
+
+.ma-label {
+  color: #666;
+  margin-right: 8px;
+}
+
+.ma-btn {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #999;
+}
+
+.ma-btn.ma-5 { color: #FF6B6B; }
+.ma-btn.ma-20 { color: #845EC2; }
+.ma-btn.ma-60 { color: #4E8BDF; }
+.ma-btn.ma-120 { color: #00C9A7; }
+
+.ma-dot {
+  font-size: 8px;
+}
+
+.ma-dot-5 { color: #FF6B6B; }
+.ma-dot-20 { color: #845EC2; }
+.ma-dot-60 { color: #4E8BDF; }
+.ma-dot-120 { color: #00C9A7; }
+
+
+.chart-container {
+  padding: 16px;
+  background: #fff;
+  position: relative;
+}
+
+.price-labels {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+  text-align: right;
+}
+
+.high-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.price-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E60000;
+}
+
+.price-percent {
+  font-size: 12px;
+  color: #E60000;
+}
+
+.current-marker {
+  background: #E60000;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.low-price {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 12px;
+  color: #0066FF;
+  margin-top: 8px;
+}
+
+.price-date {
+  color: #666;
+}
+
+
+.custom-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+
+.volume-container {
+  padding: 0 16px 16px;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.volume-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.volume-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #999;
+  padding: 0 4px;
+}
+
+.volume-toggle {
+  margin-left: auto;
+}
+
+.volume-current {
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.volume-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+
+
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #666666;
+}
+
+
+.action-button {
+  padding: 6px 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333333;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.action-button:hover {
+  background-color: #e0e0e0;
+}
+
+
+.main-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 8px;
+}
+
+.main-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.main-tab {
+  flex: 0 0 auto;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.main-tab.active {
+  color: #000000;
+  font-weight: 600;
+  border-bottom-color: #000000;
+}
+
+.tab-more {
+  margin-left: auto;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+}
+
+
+.chart-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+
+.stock-period-selector {
+  display: flex;
+  gap: 4px;
+}
+
+.stock-period-tab {
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #666666;
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stock-period-tab.active {
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
+}
+
+
+.stock-chart-action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.stock-chart-action-btn:hover {
+  background-color: #e0e0e0;
+}
+
+
+.time-range-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.time-range-label {
+  font-size: 13px;
+  color: #666666;
+  margin-right: 8px;
+}
+
+.time-range-tab {
+  min-width: 40px;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: #666666;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-range-tab.active {
+  color: #3B7DD8;
+  background-color: #E8F0FF;
+  border-color: #3B7DD8;
+}
+
+
+.charts-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.candlestick-chart-container {
+  flex: 1;
+  min-height: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.volume-chart-container {
+  height: 150px;
+  background-color: #ffffff;
+}
+
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.tab-content.investment-opinion-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tab-content.overview-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tab-content.financial-info-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tab-content.orderbook-tab-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: calc(100vh - 250px); 
+}
+
+
+.summary-content {
+  padding: 20px;
+}
+
+.summary-section {
+  margin-bottom: 24px;
+}
+
+.summary-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.indicators-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.indicator-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.indicator-label {
+  font-size: 13px;
+  color: #666666;
+}
+
+.indicator-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+
+.orderbook-content {
+  padding: 20px;
+}
+
+.orderbook-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16px;
+}
+

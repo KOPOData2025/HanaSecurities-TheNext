@@ -1,0 +1,43 @@
+/* Tossface Font with absolute URLs */
+@font-face {
+  font-family: "Tossface";
+  src: url("https://cdn.jsdelivr.net/gh/toss/tossface/dist/TossFaceFontMac.woff2") format("woff2"),
+       url("https://cdn.jsdelivr.net/gh/toss/tossface/dist/TossFaceFontMac.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base class */
+.tossface {
+  font-family: "Tossface", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Common emoji classes */
+.tossface::before {
+  font-family: "Tossface", sans-serif;
+}
+
+/* Countries */
+.tossface.u-kr::before { content: "🇰🇷"; }
+.tossface.u-us::before { content: "🇺🇸"; }
+.tossface.u-jp::before { content: "🇯🇵"; }
+.tossface.u-cn::before { content: "🇨🇳"; }
+.tossface.u-ru::before { content: "🇷🇺"; }
+
+/* Common emojis */
+.tossface.u-gift::before { content: "🎁"; }
+.tossface.u-money-bag::before { content: "💰"; }
+.tossface.u-chart-increasing::before { content: "📈"; }
+.tossface.u-star::before { content: "⭐"; }
+.tossface.u-money-with-wings::before { content: "💸"; }
+.tossface.u-pin::before { content: "📍"; }
+.tossface.u-credit-card::before { content: "💳"; }
+.tossface.u-coin::before { content: "🪙"; }
+.tossface.u-won::before { content: "₩"; }

@@ -1,0 +1,264 @@
+.bnpl-terms-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bnpl-terms-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.bnpl-terms-header-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bnpl-terms-hana-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.bnpl-terms-pay-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #008485;
+}
+
+.bnpl-terms-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-terms-close {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+
+.bnpl-terms-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  margin-top: 60px;
+  gap: 8px;
+}
+
+.bnpl-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.bnpl-progress-step.active .bnpl-step-number {
+  background: #008485;
+  color: white;
+  border-color: #008485;
+}
+
+.bnpl-progress-step.active .bnpl-step-label {
+  color: #008485;
+  font-weight: 600;
+}
+
+.bnpl-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bnpl-step-label {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.bnpl-progress-line {
+  width: 40px;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 -4px;
+  margin-bottom: 24px;
+}
+
+
+.bnpl-terms-content {
+  flex: 1;
+  padding: 0 20px 100px;
+  overflow-y: auto;
+}
+
+
+.bnpl-terms-all-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.bnpl-all-check-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+
+.bnpl-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.bnpl-checkbox.checked {
+  background: #008485;
+  border-color: #008485;
+}
+
+
+.bnpl-terms-section {
+  margin-bottom: 32px;
+}
+
+.bnpl-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.bnpl-term-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bnpl-term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.bnpl-term-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.bnpl-term-title {
+  font-size: 14px;
+  color: #000;
+  line-height: 1.4;
+}
+
+.bnpl-term-expand {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.bnpl-term-expand:active {
+  color: #666;
+}
+
+.bnpl-term-content {
+  padding: 0 36px 16px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  background: #fafafa;
+  margin: 0 -20px;
+  padding-left: 56px;
+  padding-right: 40px;
+}
+
+
+.bnpl-terms-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+}
+
+.bnpl-terms-next {
+  width: 100%;
+  height: 60px;
+  background: #e0e0e0;
+  color: #999;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.2s;
+}
+
+.bnpl-terms-next.active {
+  background: #008485;
+  color: white;
+  cursor: pointer;
+}
+
+.bnpl-terms-next.active:active {
+  background: #006565;
+}
+
+.bnpl-terms-next:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}

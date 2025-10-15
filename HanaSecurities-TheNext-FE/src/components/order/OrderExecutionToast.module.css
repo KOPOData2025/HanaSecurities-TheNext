@@ -1,0 +1,66 @@
+
+.toastContainer {
+  position: fixed;
+  bottom: 72px; 
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+
+.toast {
+  background: rgba(60, 60, 60, 0.95);
+  margin: 0 16px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  
+  pointer-events: auto;
+}
+
+
+.toastHeader {
+  margin-bottom: 0px;
+}
+
+.orderTypeLabel {
+  display: inline-block;
+  background: #E60000;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.orderTypeSell {
+  background: #1976d2;
+}
+
+
+.toastContent {
+  color: white;
+}
+
+.stockInfo {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 1px;
+  line-height: 1.3;
+  color: white;
+}
+
+.executionInfo {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+@media (max-width: 768px) {
+  .toastContainer {
+    bottom: 72px;
+  }
+}

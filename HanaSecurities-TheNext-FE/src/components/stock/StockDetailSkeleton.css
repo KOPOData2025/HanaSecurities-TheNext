@@ -1,0 +1,44 @@
+.stock-detail-skeleton {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.stock-detail-skeleton-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stock-detail-skeleton-tabs {
+  display: flex;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stock-detail-skeleton-period-buttons {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  justify-content: center;
+}
+
+.stock-detail-skeleton-chart {
+  padding: 16px 20px;
+}
+
+.stock-detail-skeleton-timerange {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 12px 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stock-detail-skeleton-volume {
+  padding: 0 20px 20px 20px;
+}

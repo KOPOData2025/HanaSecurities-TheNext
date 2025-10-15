@@ -1,0 +1,455 @@
+.bnpl-usage-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bnpl-usage-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 100;
+}
+
+.bnpl-back-btn,
+.bnpl-menu-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.bnpl-usage-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+
+.bnpl-usage-content {
+  flex: 1;
+  padding: 56px 0 70px;
+  overflow-y: auto;
+}
+
+
+.bnpl-pay-header {
+  background: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bnpl-pay-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bnpl-hana-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.bnpl-logo-pay {
+  font-size: 20px;
+  font-weight: 700;
+  color: #008485;
+}
+
+.bnpl-pay-title-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bnpl-pay-subtitle {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.bnpl-usage-status {
+  font-size: 12px;
+  color: #008485;
+  padding: 2px 8px;
+  background: #E8F5F4;
+  border-radius: 4px;
+}
+
+
+.bnpl-payment-summary {
+  background: white;
+  padding: 20px 16px;
+}
+
+.bnpl-payment-info {
+  margin-bottom: 16px;
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.bnpl-payment-date {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 4px 4px;
+}
+
+.bnpl-payment-period {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 0 4px;
+}
+
+.bnpl-payment-amount {
+  margin-bottom: 16px;
+  margin-left: 18px;
+}
+
+.bnpl-amount {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+
+.bnpl-payment-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.bnpl-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.bnpl-defer-btn {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.bnpl-pay-now-btn {
+  width: calc(100% - 36px);
+  margin-left: 18px;
+  padding: 12px;
+  background: #008485;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+}
+
+
+.bnpl-payment-details {
+  background: white;
+  margin-top: 8px;
+  padding: 16px 20px;
+}
+
+.bnpl-payment-method {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.bnpl-method-icon {
+  font-size: 18px;
+}
+
+.bnpl-method-icon.tossface {
+  font-family: Tossface;
+}
+
+.bnpl-method-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.bnpl-method-info {
+  font-size: 13px;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.bnpl-method-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 26px;
+  font-size: 13px;
+  color: #666;
+}
+
+.bnpl-method-date {
+  color: #999;
+}
+
+
+.bnpl-usage-limit {
+  background: white;
+  margin-top: 8px;
+  padding: 20px;
+}
+
+.bnpl-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 16px 0;
+}
+
+.bnpl-limit-bar {
+  width: 100%;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.bnpl-limit-progress {
+  height: 100%;
+  background: #008485;
+  border-radius: 4px;
+}
+
+.bnpl-limit-info {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 16px;
+  text-align: end;
+}
+
+.bnpl-limit-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bnpl-limit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bnpl-limit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.bnpl-limit-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+
+.bnpl-limit-dot.used {
+  background: #008485;
+}
+
+.bnpl-limit-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.bnpl-limit-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.bnpl-limit-amount.used {
+  color: #008485;
+  font-weight: 700;
+}
+
+
+.bnpl-usage-history {
+  background: white;
+  margin-top: 8px;
+  padding: 20px;
+}
+
+.bnpl-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.bnpl-history-more {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bnpl-history-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.bnpl-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bnpl-history-item:last-child {
+  border-bottom: none;
+}
+
+.bnpl-history-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.bnpl-history-date {
+  font-size: 13px;
+  color: #999;
+  min-width: 45px;
+}
+
+.bnpl-history-store {
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bnpl-history-info {
+  color: #999;
+  font-size: 13px;
+}
+
+.bnpl-history-arrow {
+  color: #ccc;
+  margin-left: 4px;
+}
+
+.bnpl-history-amount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-align: right;
+}
+
+
+.bnpl-faq-section {
+  background: white;
+  margin-top: 8px;
+  padding: 20px;
+}
+
+.bnpl-faq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.bnpl-faq-more {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bnpl-faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.bnpl-faq-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bnpl-faq-item:last-child {
+  border-bottom: none;
+}
+
+.bnpl-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+  text-align: left;
+}
+
+.bnpl-faq-answer {
+  padding: 0 0 16px 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.bnpl-faq-answer p {
+  margin: 0;
+}

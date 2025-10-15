@@ -1,0 +1,426 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+.srp-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  overflow: hidden;
+  max-width: 428px;
+  margin: 0 auto;
+}
+
+
+.srp-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  height: 56px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.srp-back-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-right: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #000;
+}
+
+.srp-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+
+.srp-search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 16px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.srp-search-icon {
+  position: absolute;
+  left: 20px;
+  color: #000;
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+}
+
+.srp-search-input {
+  flex: 1;
+  height: 24px;
+  padding: 0 35px 0 40px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-family: 'Pretendard', sans-serif;
+  outline: none;
+  color: #000;
+}
+
+.srp-search-input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.srp-clear-btn {
+  position: absolute;
+  right: 28px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+
+.srp-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.srp-section {
+  padding: 20px;
+  background: #fff;
+}
+
+.srp-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 5px 24px 5px;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid black;
+}
+
+.srp-section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.srp-section-time {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+}
+
+
+.srp-stock-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.srp-stock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.srp-stock-item:hover {
+  background-color: #f9f9f9;
+}
+
+.srp-stock-item:active {
+  background-color: #f5f5f5;
+}
+
+.srp-stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.srp-stock-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.srp-stock-code-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.srp-stock-code {
+  font-size: 13px;
+  color: #999;
+}
+
+.srp-stock-market {
+  font-size: 11px;
+  color: #fff;
+  background: #ff6b00;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.srp-stock-price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.srp-stock-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.srp-stock-change {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.srp-stock-change.positive {
+  color: #e60000;
+}
+
+.srp-stock-change.negative {
+  color: #0066ff;
+}
+
+
+.srp-more-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  width: 100%;
+}
+
+.srp-more-link span {
+  font-weight: 400;
+}
+
+.srp-more-icon {
+  transform: rotate(0deg);
+  transition: transform 0.2s;
+}
+
+
+.srp-fund-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 10px;
+}
+
+.srp-fund-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.srp-fund-item:active {
+  background-color: #f0f0f0;
+}
+
+.srp-fund-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.srp-fund-type-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 500;
+  color: #ff6b00;
+  background: #fff3e8;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.srp-fund-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.4;
+}
+
+.srp-fund-details {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.srp-fund-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.srp-fund-category {
+  font-size: 12px;
+  color: #999;
+}
+
+.srp-fund-return {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e60000;
+}
+
+
+.srp-bond-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.srp-bond-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.srp-bond-item:last-child {
+  border-bottom: none;
+}
+
+.srp-bond-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.srp-bond-type-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: #0066ff;
+  background: #e8f2ff;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.srp-bond-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.srp-bond-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.srp-bond-issuer {
+  font-size: 11px;
+  color: #999;
+}
+
+.srp-bond-rate {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.srp-bond-rate.negative {
+  color: #0066ff;
+}
+
+
+.srp-loading,
+.srp-error,
+.srp-no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.srp-loading {
+  color: #666;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.srp-error {
+  color: #e60000;
+}
+
+.srp-error::before {
+  content: '⚠️';
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.srp-no-results {
+  gap: 12px;
+}
+
+.srp-no-results-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.srp-no-results-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  line-height: 1.5;
+  margin: 8px 0 0 0;
+  max-width: 280px;
+}

@@ -1,0 +1,317 @@
+
+:root {
+  --modal-brand-red: #E60000;
+  --modal-brand-blue: #1976d2;
+  --modal-text-primary: #000000;
+  --modal-text-secondary: #666666;
+  --modal-background: #FFFFFF;
+  --modal-border: #F0F0F0;
+  --modal-divider: #000000;
+  --modal-cancel-bg: #F5F5F5;
+  --modal-toggle-off: #CCCCCC;
+  --modal-toggle-on: #4CAF50;
+}
+
+
+.orderConfirmModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.orderConfirmModal {
+  background: var(--modal-background);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px 20px 0 0;
+  padding: 10px;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+.modalHeader {
+  padding: 28px 20px 8px 20px;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--modal-text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.titleRed {
+  color: var(--modal-brand-red);
+  font-weight: 700;
+}
+
+.titleBlue {
+  color: var(--modal-brand-blue);
+  font-weight: 700;
+}
+
+
+.stockInfoSection {
+  padding: 20px 20px 0 20px;
+}
+
+.stockName {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--modal-text-primary);
+  line-height: 1.4;
+  white-space: normal;
+  word-break: keep-all;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #000000;
+}
+
+
+.orderDetails {
+  padding: 0 20px 20px 20px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  font-size: 15px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.detailLabel {
+  color: var(--modal-text-secondary);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.detailValue {
+  color: var(--modal-text-primary);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.detailValueRed {
+  color: var(--modal-brand-red);
+  font-weight: 600;
+}
+
+.detailValueBlue {
+  color: var(--modal-brand-blue);
+  font-weight: 600;
+}
+
+.detailRowPrice {
+  border-bottom: none !important;
+}
+
+.detailRowNoBorder {
+  border-bottom: none !important;
+}
+
+.detailDivider {
+  height: 1px;
+  background: var(--modal-divider);
+  margin: 8px 0;
+}
+
+.totalRow {
+  height: 52px;
+}
+
+.totalAmount {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--modal-text-primary);
+}
+
+
+.confirmationSkipSection {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid var(--modal-border);
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  gap: 8px;
+}
+
+.toggleLabel {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--modal-text-primary);
+  line-height: 1.4;
+}
+
+.infoIcon {
+  color: #999999;
+  flex-shrink: 0;
+}
+
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-toggle-off);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.toggleSlider:before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background-color: var(--modal-toggle-on);
+}
+
+.toggleSwitch input:checked + .toggleSlider:before {
+  transform: translateX(20px);
+}
+
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 12px 20px;
+  background: var(--modal-background);
+}
+
+.btnCancel,
+.btnConfirm {
+  height: 56px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.btnCancel {
+  flex: 0.7;
+  background: white;
+  color: var(--modal-text-secondary);
+  border: 1px solid #DDDDDD;
+}
+
+.btnCancel:hover {
+  background: #FAFAFA;
+  border-color: #CCCCCC;
+}
+
+.btnCancel:active {
+  background: #F5F5F5;
+  border-color: #BBBBBB;
+  transform: scale(0.98);
+}
+
+.btnConfirm {
+  flex: 1.3;
+  background: var(--modal-brand-red);
+  color: white;
+}
+
+.btnConfirm:hover {
+  background: #CC0000;
+}
+
+.btnConfirm:active {
+  background: #B30000;
+  transform: scale(0.98);
+}
+
+.btnConfirmSell {
+  background: var(--modal-brand-blue);
+}
+
+.btnConfirmSell:hover {
+  background: #1565c0;
+}
+
+.btnConfirmSell:active {
+  background: #0d47a1;
+  transform: scale(0.98);
+}
+
+
+@media (max-width: 768px) {
+  .orderConfirmModal {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+
+.btnCancel:focus-visible,
+.btnConfirm:focus-visible {
+  outline: 2px solid var(--modal-brand-red);
+  outline-offset: 2px;
+}
+
+.toggleSwitch input:focus-visible + .toggleSlider {
+  box-shadow: 0 0 0 2px var(--modal-background), 0 0 0 4px var(--modal-brand-red);
+}

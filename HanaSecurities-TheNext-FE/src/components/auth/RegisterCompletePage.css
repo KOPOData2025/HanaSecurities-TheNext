@@ -1,0 +1,80 @@
+.register-complete-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.register-complete-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-complete-icon {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-complete-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+.register-complete-message {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.register-complete-sub {
+  font-size: 15px;
+  color: #999;
+  margin: 0 0 48px 0;
+}
+
+.register-complete-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.register-complete-btn-primary {
+  width: 100%;
+  padding: 16px;
+  background-color: #00857D;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.register-complete-btn-primary:hover {
+  background-color: #006d66;
+}
+
+.register-complete-btn-secondary {
+  width: 100%;
+  padding: 16px;
+  background-color: #fff;
+  color: #00857D;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid #00857D;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.register-complete-btn-secondary:hover {
+  background-color: #f8f9fa;
+}

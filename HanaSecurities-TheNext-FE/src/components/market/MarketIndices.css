@@ -1,0 +1,119 @@
+
+.domestic-index-container {
+  background: white;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.domestic-index-container::-webkit-scrollbar {
+  display: none;
+}
+
+.domestic-index-indices {
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+}
+
+.domestic-index-card {
+  width: 124px;
+  min-width: 124px;
+  height: 140px;
+  border-radius: 12px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.domestic-index-card.positive {
+  background: #FFF8F8;
+}
+
+.domestic-index-card.negative {
+  background: #f5faf5;
+}
+
+.domestic-index-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.domestic-index-content {
+  position: relative;
+  z-index: 1;
+}
+
+.domestic-index-title {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: -0.2px;
+}
+
+.domestic-index-value {
+  font-size: 19px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 2px;
+  letter-spacing: -0.3px;
+}
+
+.domestic-index-change {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.domestic-index-card.positive .domestic-index-change {
+  color: #E60000 !important;
+}
+
+.domestic-index-card.negative .domestic-index-change {
+  color: #4DABF7 !important;
+}
+
+.domestic-index-card.negative .domestic-index-arrow,
+.domestic-index-card.negative .domestic-index-change-value,
+.domestic-index-card.negative .domestic-index-change-percent {
+  color: #4DABF7 !important;
+}
+
+.domestic-index-arrow {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.domestic-index-change-value {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.domestic-index-change-percent {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+.domestic-index-chart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}

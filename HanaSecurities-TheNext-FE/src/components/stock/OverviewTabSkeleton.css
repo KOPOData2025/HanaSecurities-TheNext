@@ -1,0 +1,24 @@
+.overview-tab-skeleton {
+  padding: 16px;
+}
+
+.overview-skeleton-section {
+  margin-bottom: 24px;
+}
+
+.overview-skeleton-section:last-child {
+  margin-bottom: 0;
+}
+
+.overview-skeleton-rows {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overview-skeleton-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

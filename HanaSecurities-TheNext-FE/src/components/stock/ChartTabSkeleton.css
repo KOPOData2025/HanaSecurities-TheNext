@@ -1,0 +1,28 @@
+.chart-tab-skeleton {
+  padding: 16px;
+}
+
+.chart-skeleton-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.chart-skeleton-period {
+  display: flex;
+  gap: 8px;
+}
+
+.chart-skeleton-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chart-skeleton-candlestick {
+  margin-bottom: 12px;
+}
+
+.chart-skeleton-volume {
+  margin-bottom: 16px;
+}

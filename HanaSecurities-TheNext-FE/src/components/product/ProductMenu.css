@@ -1,0 +1,78 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.product-menu-container {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.product-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.product-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.product-menu-item:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.product-menu-item:active {
+  transform: translateY(0);
+}
+
+.product-menu-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f8f9fa;
+  border-radius: 50%;
+}
+
+.product-menu-label {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 380px) {
+  .product-menu-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+  
+  .product-menu-item {
+    padding: 8px 4px;
+  }
+  
+  .product-menu-icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .product-menu-label {
+    font-size: 11px;
+  }
+}

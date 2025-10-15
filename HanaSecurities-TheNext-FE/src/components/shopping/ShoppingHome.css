@@ -1,0 +1,257 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.shop-home-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: 80px;
+  overflow-y: auto;
+}
+
+
+.shop-home-category-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 8px;
+  background: white;
+}
+
+.shop-home-category-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.shop-home-category-tab:hover {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+.shop-home-category-tab.active {
+  background: #475569;
+  border-color: #475569;
+  color: white;
+  font-weight: 600;
+}
+
+
+.shop-home-banner-container {
+  padding: 12px;
+  background: #f8f9fa;
+}
+
+.shop-home-banner-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+}
+
+.shop-home-banner-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.shop-home-banner {
+  min-width: 100%;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.shop-home-banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-home-banner-text {
+  flex: 1;
+}
+
+.shop-home-banner-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.shop-home-banner-subtitle {
+  font-size: 13px;
+  color: #666;
+}
+
+.shop-home-banner-emoji {
+  font-size: 36px;
+  margin-left: 16px;
+}
+
+.shop-home-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+}
+
+.shop-home-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shop-home-dot.active {
+  width: 20px;
+  border-radius: 3px;
+  background: #333;
+}
+
+
+.shop-home-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 12px 20px;
+}
+
+.shop-home-product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shop-home-product-card:active {
+  transform: scale(0.98);
+}
+
+.shop-home-product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.shop-home-product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.shop-home-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shop-home-product-info {
+  padding: 12px;
+}
+
+.shop-home-product-title {
+  font-size: 13px;
+  color: #212529;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-home-price-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.shop-home-product-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.shop-home-original-price {
+  font-size: 13px;
+  color: #adb5bd;
+  text-decoration: line-through;
+}
+
+.shop-home-product-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 4px;
+}
+
+.shop-home-rating {
+  color: #ffc107;
+}
+
+.shop-home-reviews {
+  color: #6c757d;
+}
+
+.shop-home-delivery-type {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  margin-left: auto;
+}
+
+.shop-home-discount-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+
+@media (max-width: 375px) {
+  .shop-home-product-grid {
+    gap: 8px;
+    padding: 0 8px 20px;
+  }
+
+  .shop-home-product-title {
+    font-size: 12px;
+  }
+
+  .shop-home-product-price {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,153 @@
+.stock-overview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+
+.sub-tabs {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #333;
+  gap: 6px;
+}
+
+.sub-tab {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #999;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sub-tab.active {
+  color: #333;
+  border-color: #333;
+}
+
+.sub-tab-link {
+  margin-left: auto;
+  font-size: 13px;
+  color: #999;
+  text-decoration: none;
+}
+
+
+.overview-table-container {
+  flex: 1;
+  overflow-y: auto;
+  background: #ffffff;
+  min-height: 0;
+}
+
+
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.overview-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.overview-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.overview-table td {
+  padding: 14px 15px;
+  font-size: 16px;
+}
+
+.overview-table td.label {
+  width: 45%;
+  color: #666;
+  background-color: #f9f9f9;
+  font-weight: 400;
+}
+
+.overview-table td.value {
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+}
+
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.price-info .price {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.price-info .price.high-price {
+  color: #f44336;
+}
+
+.price-info .price.low-price {
+  color: #2196f3;
+}
+
+.price-info .change {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.price-info .change.positive {
+  color: #f44336;
+}
+
+.price-info .change.negative {
+  color: #2196f3;
+}
+
+
+.ir-info-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.empty-content {
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-content p {
+  color: #999;
+  font-size: 14px;
+}
+
+
+.overview-table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overview-table-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.overview-table-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.overview-table-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

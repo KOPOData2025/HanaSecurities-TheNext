@@ -1,0 +1,20 @@
+.index-card-skeleton {
+  width: 124px;
+  min-width: 124px;
+  height: 140px;
+  border-radius: 12px;
+  padding: 14px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.index-card-skeleton-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-card-skeleton-chart {
+  margin-top: auto;
+}

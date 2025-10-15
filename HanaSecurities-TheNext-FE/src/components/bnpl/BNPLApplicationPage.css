@@ -1,0 +1,575 @@
+.bnpl-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bnpl-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.bnpl-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bnpl-hana-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.bnpl-pay-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #008485;
+}
+
+.bnpl-close-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+
+.bnpl-content {
+  flex: 1;
+  padding: 60px 0 60px;
+  overflow-y: auto;
+}
+
+
+.bnpl-title-section {
+  padding: 32px 20px;
+  text-align: left;
+  position: relative;
+}
+
+.bnpl-title-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background-color: #f0f0f0;
+}
+
+.bnpl-main-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.bnpl-subtitle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.bnpl-subtitle h2 {
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(90deg, rgba(0, 132, 133, 0.7) 0%, #008485 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bnpl-beta-badge {
+  background: #ffffff;
+  color: #008485;
+  border: 1px solid #008485;
+  padding: 0 4px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: -2px;
+}
+
+.bnpl-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.bnpl-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: black;
+  line-height: 1.5;
+  min-height: 24px;
+}
+
+.bnpl-benefit-item span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.bnpl-check {
+  color: #008485;
+  font-size: 18px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 24px;
+}
+
+.bnpl-highlight {
+  position: relative;
+  display: inline-block;
+  padding: 0 3px;
+  z-index: 1;
+  font-weight: 700;
+}
+
+.bnpl-highlight::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 70%;
+  transform: translateY(-50%);
+  height: 50%;
+  background: rgba(0, 132, 133, 0.15);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+
+.bnpl-section {
+  padding: 40px 20px;
+  position: relative;
+}
+
+.bnpl-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background-color: #f0f0f0;
+}
+
+.bnpl-section:last-of-type::after {
+  display: none;
+}
+
+.bnpl-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.bnpl-section-desc {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+
+.bnpl-phone-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  margin-top: 24px;
+}
+
+.bnpl-check-mark {
+  position: absolute;
+  bottom: 25px;
+  right: calc(50% - 55px);
+  width: 32px;
+  height: 32px;
+  background: #008485;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.bnpl-phone-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bnpl-phone-frame {
+  width: 280px;
+  background: #f5f5f5;
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.bnpl-phone-header {
+  background: #e8e8e8;
+  border-radius: 16px 16px 0 0;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.bnpl-phone-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  left: 16px;
+}
+
+.bnpl-hana-small-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.bnpl-pay-text-small {
+  font-size: 12px;
+  font-weight: 600;
+  color: #008485;
+}
+
+.bnpl-phone-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-phone-body {
+  background: white;
+  border-radius: 0 0 16px 16px;
+  padding: 20px 16px;
+  min-height: 180px;
+}
+
+.bnpl-cart-items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.bnpl-cart-items .tossface {
+  font-size: 24px;
+  color: #999;
+}
+
+.bnpl-cart-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bnpl-line-gray {
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.bnpl-line-gray.short {
+  width: 60%;
+}
+
+.bnpl-payment-option {
+  background: white;
+  border: 2px solid #008485;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.bnpl-payment-selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bnpl-check-circle {
+  width: 20px;
+  height: 20px;
+  background: #008485;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.bnpl-payment-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-payment-available {
+  margin-left: auto;
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+
+
+.bnpl-payment-info {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.bnpl-payment-card {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.bnpl-payment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.bnpl-payment-header .tossface {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.bnpl-payment-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-payment-details {
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bnpl-payment-account {
+  font-size: 13px;
+  color: #666;
+}
+
+.bnpl-payment-amount {
+  font-size: 13px;
+  color: #666;
+}
+
+.bnpl-payment-note {
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.bnpl-note-bold {
+  color: #666;
+  font-weight: 600;
+}
+
+
+.bnpl-reasons-section {
+  background: white;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.bnpl-reasons-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background-color: #f0f0f0;
+}
+
+.bnpl-reasons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bnpl-reason-card {
+  width: 90%;
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.bnpl-reason-check {
+  color: #008485;
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bnpl-reason-content h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.bnpl-reason-content p {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+
+.bnpl-footer {
+  padding: 24px 20px 20px;
+  background: white;
+}
+
+.bnpl-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.bnpl-fin-logo {
+  height: 36px;
+  object-fit: contain;
+}
+
+.bnpl-innovation-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border-radius: 20px;
+}
+
+.bnpl-innovation-text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.bnpl-innovation-icon {
+  width: 18px;
+  height: 18px;
+  background: #ddd;
+  color: #666;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.bnpl-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+}
+
+.bnpl-apply-btn {
+  width: 100%;
+  height: 60px;
+  background: #008485;
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bnpl-apply-btn:active {
+  background: #006565;
+}
+
+
+.bnpl-page .tossface.u-phone::before {
+  content: "📱";
+}
+
+.bnpl-page .tossface.u-cart::before {
+  content: "🛒";
+}
+
+.bnpl-page .tossface.u-bell::before {
+  content: "🔔";
+}
+
+.bnpl-page .tossface.u-calendar::before {
+  content: "📅";
+}
+
+.bnpl-page .tossface.u-circle::before {
+  content: "○";
+  color: #008485;
+}
+
+.bnpl-page .tossface.u-sparkles::before {
+  content: "✨";
+}
+
+.bnpl-page .tossface.u-info::before {
+  content: "ⓘ";
+  color: #999;
+}

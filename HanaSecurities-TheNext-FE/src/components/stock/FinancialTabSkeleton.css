@@ -1,0 +1,28 @@
+.financial-tab-skeleton {
+  padding: 16px;
+}
+
+.financial-skeleton-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.financial-skeleton-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.financial-skeleton-header,
+.financial-skeleton-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.financial-skeleton-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}

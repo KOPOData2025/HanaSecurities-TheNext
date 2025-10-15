@@ -1,0 +1,481 @@
+.bnpl-info-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.bnpl-info-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.bnpl-info-header-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bnpl-info-hana-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.bnpl-info-pay-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #008485;
+}
+
+.bnpl-info-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-info-close {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+
+.bnpl-info-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  margin-top: 60px;
+  gap: 8px;
+}
+
+.bnpl-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.bnpl-progress-step.completed .bnpl-step-number {
+  background: #008485;
+  color: white;
+  border-color: #008485;
+}
+
+.bnpl-progress-step.completed .bnpl-step-label {
+  color: #008485;
+}
+
+.bnpl-progress-step.active .bnpl-step-number {
+  background: #008485;
+  color: white;
+  border-color: #008485;
+}
+
+.bnpl-progress-step.active .bnpl-step-label {
+  color: #008485;
+  font-weight: 600;
+}
+
+.bnpl-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bnpl-step-label {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.bnpl-progress-line {
+  width: 40px;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 -4px;
+  margin-bottom: 24px;
+}
+
+.bnpl-progress-line.active {
+  background: #008485;
+}
+
+
+.bnpl-info-content {
+  flex: 1;
+  padding: 0 20px 100px;
+  overflow-y: auto;
+}
+
+
+.bnpl-info-section {
+  margin-bottom: 32px;
+}
+
+.bnpl-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+
+.bnpl-email-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.bnpl-email-text {
+  font-size: 15px;
+  color: #333;
+}
+
+.bnpl-email-change {
+  font-size: 13px;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+
+.bnpl-date-selector {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.bnpl-date-selector:active {
+  border-color: #008485;
+}
+
+.bnpl-date-text {
+  font-size: 15px;
+  color: #999;
+  flex: 1;
+  text-align: left;
+}
+
+.bnpl-date-text.selected {
+  color: #000;
+}
+
+
+.bnpl-account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bnpl-account-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.bnpl-account-item.selected {
+  border-color: #008485;
+  background: #f8fffe;
+}
+
+.bnpl-account-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bnpl-account-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.bnpl-account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bnpl-account-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bnpl-account-number {
+  font-size: 13px;
+  color: #666;
+}
+
+.bnpl-account-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+
+.bnpl-account-radio.checked {
+  border-color: #008485;
+}
+
+.bnpl-radio-dot {
+  width: 10px;
+  height: 10px;
+  background: #008485;
+  border-radius: 50%;
+}
+
+
+.bnpl-info-notice {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.bnpl-info-notice ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bnpl-info-notice li {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.bnpl-info-notice li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #999;
+}
+
+.bnpl-info-notice li:last-child {
+  margin-bottom: 0;
+}
+
+
+.bnpl-info-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+}
+
+.bnpl-info-next {
+  width: 100%;
+  height: 60px;
+  background: #e0e0e0;
+  color: #999;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: all 0.2s;
+}
+
+.bnpl-info-next.active {
+  background: #008485;
+  color: white;
+  cursor: pointer;
+}
+
+.bnpl-info-next.active:active {
+  background: #006565;
+}
+
+.bnpl-info-next:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+
+.bnpl-date-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.bnpl-date-modal {
+  width: 100%;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  padding: 20px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.bnpl-date-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.bnpl-date-modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.bnpl-date-modal-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  position: absolute;
+  right: 0;
+}
+
+.bnpl-date-modal-subtitle {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.bnpl-date-modal-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #FF6B6B;
+  margin: 0;
+}
+
+.bnpl-notice-icon {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #FF6B6B;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FF6B6B;
+  flex-shrink: 0;
+}
+
+.bnpl-date-modal-content {
+  padding-bottom: 20px;
+}
+
+.bnpl-date-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bnpl-date-option {
+  width: 100%;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bnpl-date-option:hover {
+  border-color: #008485;
+  background: #f8fffe;
+}
+
+.bnpl-date-option:active {
+  background: #f0f8f8;
+}
+
+.bnpl-date-option-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.bnpl-date-option-desc {
+  font-size: 13px;
+  color: #666;
+}

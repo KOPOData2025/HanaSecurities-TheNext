@@ -1,0 +1,103 @@
+
+.ns-section {
+  background: white;
+  padding: 20px 16px 16px;
+  margin-bottom: 8px;
+}
+
+.ns-header {
+  margin-bottom: 20px;
+}
+
+.ns-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.ns-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ns-item {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ns-item:hover {
+  background: #fafafa;
+  margin: 0 -16px;
+  padding: 16px;
+}
+
+.ns-item:last-child {
+  border-bottom: none;
+}
+
+.ns-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ns-title {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #212529;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 0px 0;
+}
+
+.ns-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.ns-source {
+  color: #495057;
+  font-weight: 500;
+}
+
+.ns-time {
+  color: #868e96;
+}
+
+.ns-thumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  border: 1px solid #f1f3f5;
+}
+
+.ns-more-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ns-more-btn:hover {
+  background: #f8f9fa;
+}

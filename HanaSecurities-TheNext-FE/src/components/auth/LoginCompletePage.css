@@ -1,0 +1,40 @@
+.login-complete-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-complete-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-complete-icon {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-complete-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px 0;
+}
+
+.login-complete-message {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.login-complete-sub {
+  font-size: 15px;
+  color: #999;
+  margin: 0;
+}
