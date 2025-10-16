@@ -128,8 +128,25 @@ HanaSecurities-TheNext/
 
 ## 6. 디자인
 
-### 6-1. Figma
-프로젝트의 UI/UX 디자인은 Figma에서 확인하실 수 있습니다.
+### 6-1. 주요 화면
+
+#### 메인 화면
+| 국내주식 | 해외주식 |
+|:---:|:---:|
+| <img src="assets/images/home1.png" alt="국내주식" width="195"/> | <img src="assets/images/home2.png" alt="해외주식" width="195"/> |
+
+#### 주식 상세 페이지
+| 차트 | 호가 |
+|:---:|:---:|
+| <img src="assets/images/stock1.png" alt="차트" width="195"/> | <img src="assets/images/stock2.png" alt="호가" width="195"/> |
+
+#### 후불결제(BNPL) 서비스
+| 신청 | 이용내역 |
+|:---:|:---:|
+| <img src="assets/images/bnpl1.png" alt="신청" width="195"/> | <img src="assets/images/bnpl2.png" alt="이용내역" width="195"/> |
+
+### 6-2. Figma
+프로젝트의 UI는 Figma에서 확인하실 수 있습니다.
 
 - **Figma 링크**: [하나증권 : THE NEXT 디자인 보기](https://www.figma.com/design/mwIe1WUHzbtdbXqBR7ZmY8/%ED%95%98%EB%82%98%EC%A6%9D%EA%B6%8C---THE-NEXT?node-id=0-1&t=L15dglw3FgatGUZS-1)
 
