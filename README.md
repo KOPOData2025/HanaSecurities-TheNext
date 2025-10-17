@@ -1,12 +1,3 @@
-<h1>하나증권 : THE NEXT</h1>
-
-<!-- 프로젝트 대표 이미지 -->
-<div align="center">
-  <img src="assets/images/logo.png" alt="하나증권 : THE NEXT 로고" width="800"/>
-</div>
-
-<br/>
-
 ## 하나증권 : THE NEXT 프로젝트의 저장소를 방문해주셔서 감사합니다!
 
 > 안녕하세요! 하나증권 : THE NEXT 프로젝트 저장소에 오신 것을 환영합니다.
@@ -33,15 +24,33 @@
 
 ## 1. 프로젝트 소개
 
+<div align="center" style="position: relative; display: inline-block;">
+  <a href="https://youtu.be/-iK1IPnN1rQ?si=avor7d5hy0demBJg" style="position: relative; display: inline-block;">
+    <img src="assets/images/logo.png" alt="프로젝트 광고 영상" width="800"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg"
+         alt="Play"
+         width="100"
+         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.9;"/>
+  </a>
+  <p><i>▲ 클릭하시면 YouTube에서 프로젝트 광고 영상을 시청할 수 있습니다.</i></p>
+</div>
+<br/>
+
 하나증권 : THE NEXT는 증권계좌 거래내역 기반 대안신용평가 모델을 활용하여 투자와 소비를 하나로 연결한 통합 금융 플랫폼입니다. 최근 후불결제(BNPL) 서비스의 급격한 성장으로 연체율과 신용 리스크가 주요 문제로 떠오르고 있으며, 이를 해결하기 위해 투자 데이터를 기반으로 신용을 평가하고 후불결제 서비스에 적용하는 모델을 제안합니다.
 
 <br/>
 
 ## 2. 주요 기능
 
-### 2-1. 핵심 기능
+| 국내주식 거래 | 해외주식 거래 | BNPL 후불결제 | 금 현물 투자 |
+|:---:|:---:|:---:|:---:|
+| <img src="assets/images/domestic_stock.png" alt="국내주식" width="195"/> | <img src="assets/images/foreign_stock.png" alt="해외주식" width="195"/> | <img src="assets/images/bnpl.png" alt="BNPL" width="195"/> | <img src="assets/images/gold.png" alt="금투자" width="195"/> |
+| 실시간 호가 WebSocket 연동<br/>분/일/주/월봉 차트<br/>재무정보 및 투자의견 | 미국/일본/중국/홍콩 거래<br/>실시간 글로벌 시세<br/>국가별 시간대 지원 | AI 기반 신용평가<br/>최대 30만원 한도<br/>투자내역 기반 심사 | 금 현물 실시간 시세<br/>1g 단위 소액투자<br/>미니금 종목 제공 |
 
-### 2-2. 차별화된 기능
+| WebAuthn 지문인증 | 실시간 뉴스 | 내부 커머스 플랫폼 | 실시간 랭킹 |
+|:---:|:---:|:---:|:---:|
+| <img src="assets/images/webauthn.png" alt="지문인증" width="195"/> | <img src="assets/images/news.png" alt="뉴스" width="195"/> | <img src="assets/images/shopping.png" alt="쇼핑" width="195"/> | <img src="assets/images/ranking.png" alt="랭킹" width="195"/> |
+| FIDO2 표준 적용<br/>패스워드리스 생체인증<br/>안전한 로그인/회원가입 | 국내외 금융뉴스<br/>상세 뉴스 조회 | BNPL 결제 지원 | 국내외 종목 랭킹<br/>거래량/등락률 순위 |
 
 <br/>
 
@@ -81,7 +90,9 @@
 
 ## 4. 서비스 아키텍처
 
-### 4-1. 시스템 구성도
+### 4-1. 서비스 구성도
+
+### 4-2. 시스템 구성도
 
 <div align="center">
   <img src="assets/images/architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
@@ -125,24 +136,6 @@ HanaSecurities-TheNext/
 
 ## 6. 디자인
 
-### 6-1. 주요 화면
-
-#### 메인 화면
-| 국내주식 | 해외주식 |
-|:---:|:---:|
-| <img src="assets/images/home1.png" alt="국내주식" width="195"/> | <img src="assets/images/home2.png" alt="해외주식" width="195"/> |
-
-#### 주식 상세 페이지
-| 차트 | 호가 |
-|:---:|:---:|
-| <img src="assets/images/stock1.png" alt="차트" width="195"/> | <img src="assets/images/stock2.png" alt="호가" width="195"/> |
-
-#### 후불결제(BNPL) 서비스
-| 신청 | 이용내역 |
-|:---:|:---:|
-| <img src="assets/images/bnpl1.png" alt="신청" width="195"/> | <img src="assets/images/bnpl2.png" alt="이용내역" width="195"/> |
-
-### 6-2. Figma
 프로젝트의 UI는 Figma에서 확인하실 수 있습니다.
 
 - **Figma 링크**: [하나증권 : THE NEXT 디자인 보기](https://www.figma.com/design/mwIe1WUHzbtdbXqBR7ZmY8/%ED%95%98%EB%82%98%EC%A6%9D%EA%B6%8C---THE-NEXT?node-id=0-1&t=L15dglw3FgatGUZS-1)
@@ -167,5 +160,6 @@ HanaSecurities-TheNext/
 ||삼성 청년 SW 아카데미 2학기 공통 프로젝트 우수상|삼성전자주식회사(2024.08.16)|
 ||삼성 청년 SW 아카데미 1학기 관통 프로젝트 우수상|삼성전자주식회사(2024.05.24)|
 ||삼성 청년 SW 아카데미 1학기 성적 우수상|삼성전자주식회사(2024.05.24)|
-|**교육**|서울핀테크아카데미(금융투자교육원) 금융투자업 트랙|2025.10~2025.12|
+|**교육**|하나금융티아이 채용연계형 교육|2025.03 ~ 2025.10|
+||서울핀테크아카데미(금융투자교육원) 금융투자업 트랙|2025.10 ~ 2025.12|
 ||삼성 청년 SW 아카데미(SSAFY)|2024.01 ~ 2024.12|
