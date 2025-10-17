@@ -26,11 +26,7 @@
 
 <div align="center" style="position: relative; display: inline-block;">
   <a href="https://youtu.be/-iK1IPnN1rQ?si=avor7d5hy0demBJg" style="position: relative; display: inline-block;">
-    <img src="assets/images/logo.png" alt="프로젝트 광고 영상" width="800"/>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg"
-         alt="Play"
-         width="100"
-         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.9;"/>
+    <img src="assets/images/thumbnail.png" alt="프로젝트 광고 영상" width="800"/>
   </a>
   <p><i>▲ 클릭하시면 YouTube에서 프로젝트 광고 영상을 시청할 수 있습니다.</i></p>
 </div>
