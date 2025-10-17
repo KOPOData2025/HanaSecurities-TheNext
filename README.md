@@ -44,12 +44,12 @@
 | 국내주식 거래 | 해외주식 거래 | BNPL 후불결제 | 금 현물 투자 |
 |:---:|:---:|:---:|:---:|
 | <img src="assets/images/domestic_stock.png" alt="국내주식" width="195"/> | <img src="assets/images/foreign_stock.png" alt="해외주식" width="195"/> | <img src="assets/images/bnpl.png" alt="BNPL" width="195"/> | <img src="assets/images/gold.png" alt="금투자" width="195"/> |
-| 실시간 호가 WebSocket 연동<br/>분/일/주/월봉 차트<br/>재무정보 및 투자의견 | 미국/일본/중국/홍콩 거래<br/>실시간 글로벌 시세<br/>국가별 시간대 지원 | AI 기반 신용평가<br/>최대 30만원 한도<br/>투자내역 기반 심사 | 금 현물 실시간 시세<br/>1g 단위 소액투자<br/>미니금 종목 제공 |
+| 실시간 호가, 체결가<br/>분/일/주/월봉 차트<br/>재무정보 및 투자의견 | 미국/일본/중국/홍콩 거래<br/>실시간 글로벌 시세 | AI 대안신용평가 모델<br/>최대 30만원 한도<br/>투자내역 기반 심사 | 금 현물 실시간 시세<br/>1g 단위 소액투자<br/>미니금 종목 제공 |
 
 | WebAuthn 지문인증 | 실시간 뉴스 | 내부 커머스 플랫폼 | 실시간 랭킹 |
 |:---:|:---:|:---:|:---:|
 | <img src="assets/images/webauthn.png" alt="지문인증" width="195"/> | <img src="assets/images/news.png" alt="뉴스" width="195"/> | <img src="assets/images/shopping.png" alt="쇼핑" width="195"/> | <img src="assets/images/ranking.png" alt="랭킹" width="195"/> |
-| FIDO2 표준 적용<br/>패스워드리스 생체인증<br/>안전한 로그인/회원가입 | 국내외 금융뉴스<br/>상세 뉴스 조회 | BNPL 결제 지원 | 국내외 종목 랭킹<br/>거래량/등락률 순위 |
+| FIDO2 표준 적용<br/>패스워드리스 생체인증<br/>안전한 로그인/회원가입 | 국내외 금융뉴스<br/>상세 뉴스 조회 | BNPL 결제 지원 | 국내외 종목 랭킹<br/>상승률/하락률 순위<br/>거래량/등락률 순위 |
 
 <br/>
 
