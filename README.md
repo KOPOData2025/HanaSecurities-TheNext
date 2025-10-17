@@ -2,11 +2,14 @@
 
 > 안녕하세요! 하나증권 : THE NEXT 프로젝트 저장소에 오신 것을 환영합니다.
 >
-> 현재 코드와 산출물을 보완하는 중이며, 프로젝트 화면은 아래 목차의 [디자인](#6-디자인) 섹션에 있는 Figma 링크를 통해 확인하실 수 있습니다.
+> 프로젝트 광고 영상은 아래 [프로젝트 소개](#1-프로젝트-소개)에서 확인하실 수 있으며,
+> 서비스 구조는 [서비스 아키텍처](#4-서비스-아키텍처)의 구성도를 통해 확인하실 수 있습니다.
+>
+> 프로젝트 화면은 [디자인](#6-디자인) 섹션의 Figma 링크를 통해 확인하실 수 있습니다.
 >
 > 이 README를 통해 프로젝트의 전반적인 구조와 사용 방법을 확인하실 수 있습니다.
 >
-> 궁금한 점이나 개선 제안이 있으시다면 언제든지 [개발자 프로필](#7-개발자-프로필)의 이메일로 연락 주세요!
+> 궁금한 점이 있으시다면 언제든지 [개발자 프로필](#7-개발자-프로필)의 이메일로 연락 주세요!
 
 <br/>
 
@@ -28,7 +31,7 @@
   <a href="https://youtu.be/-iK1IPnN1rQ?si=avor7d5hy0demBJg" style="position: relative; display: inline-block;">
     <img src="assets/images/thumbnail.png" alt="프로젝트 광고 영상" width="800"/>
   </a>
-  <p><i>▲ 클릭하시면 YouTube에서 프로젝트 광고 영상을 시청할 수 있습니다.</i></p>
+  <p><i>▲ 클릭하시면 YouTube에서 프로젝트 광고 영상을 시청하실 수 있습니다.</i></p>
 </div>
 <br/>
 
@@ -88,18 +91,15 @@
 
 ### 4-1. 서비스 구성도
 
+<div align="center">
+  <img src="assets/images/service_architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
+</div>
+
 ### 4-2. 시스템 구성도
 
 <div align="center">
-  <img src="assets/images/architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
+  <img src="assets/images/system_architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
 </div>
-
-시스템은 크게 Frontend, Backend, Database 계층으로 구성되어 있으며, 각 계층은 다음과 같은 역할을 수행합니다:
-
-- **Frontend Layer**: React 기반의 SPA(Single Page Application)로 사용자 인터페이스 제공
-- **Backend Layer**: Spring Boot와 Django를 활용한 RESTful API 및 WebSocket 통신
-- **Database Layer**: Oracle을 주 데이터베이스로, Redis를 캐싱 레이어로 활용
-- **DevOps**: Docker 컨테이너화 및 AWS EC2 기반 배포, GitHub Actions를 통한 CI/CD 자동화
 
 <br/>
 
@@ -107,26 +107,16 @@
 
 ```
 HanaSecurities-TheNext/
-├── HanaSecurities-TheNext-FE/    # Frontend 애플리케이션
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── HanaSecurities-TheNext-BE/    # Backend 애플리케이션
-│   ├── src/
-│   ├── tests/
-│   └── package.json
-│
-├── HanaSecurities-TheNext-DB/    # Database 스키마 및 마이그레이션
-│   ├── migrations/
-│   ├── seeds/
-│   └── schema/
-│
-├── assets/                       # 프로젝트 문서 리소스 (이미지, 다이어그램 등)
-│   └── images/
-│
+├── HanaSecurities-TheNext-FE/     # Frontend (React + TypeScript)
+├── HanaSecurities-TheNext-BE/     # Backend (Spring Boot + Java)
+├── HanaSecurities-TheNext-AI/     # AI Server (Django + Python)
+├── HanaSecurities-TheNext-DB/     # Database Schema (Oracle SQL)
+├── assets/                        # 프로젝트 리소스 (이미지, 다이어그램)
+├── 산출물/                        # 프로젝트 산출물 문서
 └── README.md
 ```
+
+각 폴더의 상세 구조는 해당 폴더의 README.md 파일을 참고해주세요.
 
 <br/>
 

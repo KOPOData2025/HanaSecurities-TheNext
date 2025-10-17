@@ -4,7 +4,7 @@
 하나증권 : THE NEXT의 React + TypeScript 기반 프론트엔드 파일입니다.
 
 ## 프로젝트 정보
-- **프레임워크**: React 18 + TypeScript
+- **프레임워크**: React + TypeScript
 - **빌드 도구**: Vite
 - **개발 서버**: localhost:5173
 - **백엔드 API**: localhost:8080/api/v1/*
