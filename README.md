@@ -3,13 +3,13 @@
 > 안녕하세요! 하나증권 : THE NEXT 프로젝트 저장소에 오신 것을 환영합니다.
 >
 > 프로젝트 광고 영상은 아래 [프로젝트 소개](#1-프로젝트-소개)에서 확인하실 수 있으며,
-> 서비스 구조는 [서비스 아키텍처](#4-서비스-아키텍처)의 구성도를 통해 확인하실 수 있습니다.
+> 서비스 구조는 [서비스 아키텍처](#5-서비스-아키텍처)의 구성도를 통해 확인하실 수 있습니다.
 >
-> 프로젝트 화면은 [디자인](#6-디자인) 섹션의 Figma 링크를 통해 확인하실 수 있습니다.
+> 프로젝트 화면은 [디자인](#7-디자인) 섹션의 Figma 링크를 통해 확인하실 수 있습니다.
 >
 > 이 README를 통해 프로젝트의 전반적인 구조와 사용 방법을 확인하실 수 있습니다.
 >
-> 궁금한 점이 있으시다면 언제든지 [개발자 프로필](#7-개발자-프로필)의 이메일로 연락 주세요!
+> 궁금한 점이 있으시다면 언제든지 [개발자 프로필](#8-개발자-프로필)의 이메일로 연락 주세요!
 
 <br/>
 
@@ -17,11 +17,12 @@
 
 1. [프로젝트 소개](#1-프로젝트-소개)
 2. [주요 기능](#2-주요-기능)
-3. [기술 스택](#3-기술-스택)
-4. [서비스 아키텍처](#4-서비스-아키텍처)
-5. [프로젝트 구조](#5-프로젝트-구조)
-6. [디자인](#6-디자인)
-7. [개발자 프로필](#7-개발자-프로필)
+3. [후불결제 승인 과정](#3-후불결제-승인-과정)
+4. [기술 스택](#4-기술-스택)
+5. [서비스 아키텍처](#5-서비스-아키텍처)
+6. [프로젝트 구조](#6-프로젝트-구조)
+7. [디자인](#7-디자인)
+8. [개발자 프로필](#8-개발자-프로필)
 
 <br/>
 
@@ -53,16 +54,37 @@
 
 <br/>
 
-## 3. 기술 스택
+## 3. 후불결제 승인 과정
 
-### 3-1. Frontend
+<div align="center">
+  <img src="assets/images/ram.png" alt="RAM 계산 공식" width="800"/>
+  <p><i>▲ 위험조정마진(RAM) 계산 공식 및 분석</i></p>
+</div>
+
+**RAM 공식:**
+```
+RAM = MDR + PD × (LIR × k - LGD)
+```
+
+- **RAM**: 위험조정이익률
+- **MDR**: 가맹점 수수료
+- **PD**: 연체확률 (AI 모델 예측)
+- **LIR**: 연체금리
+- **k**: 리스크 프리미엄 계수
+- **LGD**: 연체 시 손실률
+
+AI 대안신용평가 모델이 사용자의 **위험조정수익률**을 계산하고, 그 값이 카드사 업계 평균 이익률보다 높은 **2% 이상**이면 후불결제 서비스 승인 (PD의 값이 대략 2.5 ~ 2.7% 이하이면 승인)
+
+## 4. 기술 스택
+
+### 4-1. Frontend
 <div>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
 </div>
 
-### 3-2. Backend
+### 4-2. Backend
 <div>
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot"/>
   <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -72,13 +94,13 @@
   <img src="https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white" alt="WebSocket"/>
 </div>
 
-### 3-3. Database
+### 4-3. Database
 <div>
   <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle"/>
   <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
 </div>
 
-### 3-4. DevOps
+### 4-4. DevOps
 <div>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
   <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
@@ -87,15 +109,15 @@
 
 <br/>
 
-## 4. 서비스 아키텍처
+## 5. 서비스 아키텍처
 
-### 4-1. 서비스 구성도
+### 5-1. 서비스 구성도
 
 <div align="center">
   <img src="assets/images/service_architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
 </div>
 
-### 4-2. 시스템 구성도
+### 5-2. 시스템 구성도
 
 <div align="center">
   <img src="assets/images/system_architecture.png" alt="하나증권 THE NEXT 서비스 아키텍처" width="800"/>
@@ -103,7 +125,7 @@
 
 <br/>
 
-## 5. 프로젝트 구조
+## 6. 프로젝트 구조
 
 ```
 HanaSecurities-TheNext/
@@ -120,7 +142,7 @@ HanaSecurities-TheNext/
 
 <br/>
 
-## 6. 디자인
+## 7. 디자인
 
 프로젝트의 UI는 Figma에서 확인하실 수 있습니다.
 
@@ -128,7 +150,7 @@ HanaSecurities-TheNext/
 
 <br/>
 
-## 7. 개발자 프로필
+## 8. 개발자 프로필
 |구분|내용|비고|
 |:--:|:--:|:--:|
 **이름**|이상현|<img src="assets/images/이상현.png" width="150"/>|
