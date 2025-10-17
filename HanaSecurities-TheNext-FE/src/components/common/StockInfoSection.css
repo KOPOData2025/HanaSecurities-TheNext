@@ -1,27 +1,49 @@
-.stock-info-section {
+/* Stock Detail Info Section */
+.stock-detail-info-section,
+.gold-detail-info-section {
   background-color: #ffffff;
   padding: 12px 16px;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.stock-codes {
+.stock-detail-codes,
+.gold-detail-codes {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.code-primary {
-  font-weight: 600;
+/* 종목코드가 유일한 자식이 아닐 때만 구분자 표시 */
+.stock-detail-code-primary:not(:only-child)::after,
+.gold-detail-code-primary:not(:only-child)::after {
+  content: '|';
+  margin-left: 8px;
+  color: #ddd;
+}
+
+/* 거래소/지수들 사이에 구분자 표시 (마지막 제외) */
+.stock-detail-code-secondary:not(:last-of-type)::after,
+.gold-detail-code-secondary:not(:last-of-type)::after {
+  content: '|';
+  margin-left: 8px;
+  color: #ddd;
+}
+
+.stock-detail-code-primary,
+.gold-detail-code-primary {
+  font-weight: 500;
   color: #333333;
 }
 
-.code-secondary {
+.stock-detail-code-secondary,
+.gold-detail-code-secondary {
   color: #666666;
 }
 
-.market-time {
+.stock-detail-market-time,
+.gold-detail-market-time {
   margin-left: auto;
   display: flex;
   gap: 8px;
@@ -29,97 +51,125 @@
   font-size: 11px;
 }
 
-.market-time span {
+.stock-detail-market-time span,
+.gold-detail-market-time span {
   padding: 2px 6px;
   background-color: #f5f5f5;
   border-radius: 3px;
 }
 
-.stock-price-info {
+.stock-detail-price-info,
+.gold-detail-price-info {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-.stock-detail-page-current-price {
+.stock-detail-current-price,
+.gold-detail-current-price {
   display: flex;
   align-items: baseline;
   gap: 12px;
 }
 
-.stock-detail-page-price-value {
+.stock-detail-price-value,
+.gold-detail-price-value {
   font-size: 28px;
   font-weight: 700;
   color: #000000;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-
-.stock-detail-page-price-value.up {
+.stock-detail-price-value.up,
+.gold-detail-price-value.up {
   color: #E84041;
 }
 
-.stock-detail-page-price-value.down {
+.stock-detail-price-value.down,
+.gold-detail-price-value.down {
   color: #1070E0;
 }
 
-.stock-detail-page-price-value.neutral {
+.stock-detail-price-value.neutral,
+.gold-detail-price-value.neutral {
   color: #000000;
 }
 
-.stock-detail-page-price-change {
+.stock-detail-price-change,
+.gold-detail-price-change {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 6px;
   font-size: 14px;
+  line-height: 1;
 }
 
-.stock-detail-page-price-change.up {
+.stock-detail-price-change.up,
+.gold-detail-price-change.up {
   color: #E84041;
 }
 
-.stock-detail-page-price-change.down {
+.stock-detail-price-change.down,
+.gold-detail-price-change.down {
   color: #1070E0;
 }
 
-.stock-detail-page-price-change.neutral {
+.stock-detail-price-change.neutral,
+.gold-detail-price-change.neutral {
   color: #000000;
 }
 
-.stock-detail-page-arrow {
+.stock-detail-arrow,
+.gold-detail-arrow {
   font-size: 14px;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-.stock-detail-page-change-amount {
+.stock-detail-change-amount,
+.gold-detail-change-amount {
   font-size: 16px;
   font-weight: 500;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-.stock-detail-page-change-percent {
+.stock-detail-change-percent,
+.gold-detail-change-percent {
   font-size: 16px;
   font-weight: 500;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-.total-shares {
+.stock-detail-total-shares,
+.gold-detail-total-shares {
   font-size: 14px;
   color: #666666;
   font-weight: 500;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-
 @media (max-width: 768px) {
-  .stock-info-section {
+  .stock-detail-info-section,
+  .gold-detail-info-section {
     padding: 10px 12px;
   }
 
-  .stock-detail-page-price-value {
+  .stock-detail-price-value,
+  .gold-detail-price-value {
     font-size: 24px;
   }
 
-  .stock-detail-page-price-change {
+  .stock-detail-price-change,
+  .gold-detail-price-change {
     font-size: 13px;
   }
 
-  .stock-codes {
+  .stock-detail-codes,
+  .gold-detail-codes {
     font-size: 11px;
   }
 }

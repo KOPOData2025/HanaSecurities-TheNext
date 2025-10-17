@@ -35,6 +35,10 @@ import RegisterPage from "./components/auth/RegisterPage";
 import LoginPage from "./components/auth/LoginPage";
 import RegisterCompletePage from "./components/auth/RegisterCompletePage";
 import LoginCompletePage from "./components/auth/LoginCompletePage";
+import ForeignStockSearch from "./components/foreignStock/ForeignStockSearch";
+import ForeignWatchlistTab from "./components/foreignStock/ForeignWatchlistTab";
+import GoldDetail from "./components/gold/GoldDetail";
+import GoldOrderPage from "./components/gold/GoldOrderPage";
 import "./App.css";
 
 function HomePage() {
@@ -143,6 +147,11 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register-complete" element={<RegisterCompletePage />} />
             <Route path="/login-complete" element={<LoginCompletePage />} />
+            <Route path="/foreign-search" element={<ForeignSearchPage />} />
+            <Route path="/stock/:exchangeCode/:stockCode" element={<StockDetail />} />
+            <Route path="/foreign-watchlist" element={<ForeignWatchlistTab />} />
+            <Route path="/gold/:productCode" element={<GoldDetail />} />
+            <Route path="/gold-order" element={<GoldOrderPage />} />
           </Routes>
         </div>
       </Router>
@@ -166,6 +175,17 @@ function ShoppingPage() {
       <ShoppingHome />
       <BottomNavigation />
     </>
+  );
+}
+
+function ForeignSearchPage() {
+  const navigate = useNavigate();
+
+  return (
+    <ForeignStockSearch
+      isOpen={true}
+      onClose={() => navigate(-1)}
+    />
   );
 }
 

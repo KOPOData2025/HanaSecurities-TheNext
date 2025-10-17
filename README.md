@@ -218,3 +218,17 @@ yarn dev
 ||삼성 청년 SW 아카데미 1학기 성적 우수상|삼성전자주식회사(2024.05.24)|
 |**교육**|서울핀테크아카데미(금융투자교육원) 금융투자업 트랙|2025.10~2025.12|
 ||삼성 청년 SW 아카데미(SSAFY)|2024.01 ~ 2024.12|
+
+
+---
+
+$$
+RAM = MDR + PD \times (\text{연체이자율} \times k) - PD \times LGD
+$$
+
+where  
+- \( MDR \): 가맹점 수수료율, **0.035**  
+- \( PD \): Probability of Default (연체확률), *AI 신용모델 산출값*  
+- \( \text{연체이자율} \): Late Interest Rate (연체 시 금리), **0.1**  
+- \( k \): Risk Premium Factor (연체이자 회수비율), **0.313 ~ 0.626**  
+- \( LGD \): Loss Given Default (연체 시 손실률), **1 - 회수율 = 0.626**

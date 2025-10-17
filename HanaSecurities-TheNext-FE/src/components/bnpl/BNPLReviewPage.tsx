@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { X } from 'lucide-react';
 import Lottie from 'lottie-react';
 import './BNPLReviewPage.css';
 
 const BNPLReviewPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { creditLimit, ram, paymentDay, paymentAccount } = location.state || {};
   const [animationData, setAnimationData] = useState(null);
   const [dots, setDots] = useState('');
 
@@ -29,13 +31,20 @@ const BNPLReviewPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    
+
     const timer = setTimeout(() => {
-      navigate('/bnpl-complete');
-    }, 3000); 
+      navigate('/bnpl-complete', {
+        state: {
+          creditLimit,
+          ram,
+          paymentDay,
+          paymentAccount
+        }
+      });
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, [navigate, creditLimit, ram, paymentDay, paymentAccount]);
 
   return (
     <div className="bnpl-review-page">

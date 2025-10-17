@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, ChevronDown } from 'lucide-react';
 import { bnplApi } from '../../services/bnplService';
+import { ramApi, type CustomerData } from '../../services/ramApi';
 import './BNPLInfoPage.css';
 
 const BNPLInfoPage: React.FC = () => {
@@ -37,7 +38,20 @@ const BNPLInfoPage: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      
+      // 1단계: RAM API를 통한 신용평가
+      const sampleDataResponse = await ramApi.getSampleData();
+      const customerData: CustomerData = sampleDataResponse.data.customer_data;
+
+      const ramEvaluation = await ramApi.evaluateCreditLimit(customerData);
+
+      // RAM 값이 2% 미만이면 승인 거부
+      if (!ramEvaluation.approved) {
+        alert(`죄송합니다. 현재 후불결제 서비스 승인이 어렵습니다.\n신용평가 결과: ${(ramEvaluation.ram * 100).toFixed(2)}%\n(승인 기준: 2% 이상)`);
+        setIsSubmitting(false);
+        return;
+      }
+
+      // 2단계: RAM 승인된 경우 BNPL 신청 진행 (기존 API는 그대로 유지)
       const userId = 'test_user';
       const paymentDay = convertDateToNumber(selectedDate);
       const paymentAccount = getSelectedAccountNumber();
@@ -49,7 +63,15 @@ const BNPLInfoPage: React.FC = () => {
       });
 
       if (response.success) {
-        navigate('/bnpl-review');
+        // 승인된 신용 한도를 다음 페이지로 전달
+        navigate('/bnpl-review', {
+          state: {
+            creditLimit: ramEvaluation.creditLimit,
+            ram: ramEvaluation.ram,
+            paymentDay: selectedDate,
+            paymentAccount: getSelectedAccountNumber()
+          }
+        });
       } else {
         alert(response.message || '후불결제 신청에 실패했습니다.');
       }

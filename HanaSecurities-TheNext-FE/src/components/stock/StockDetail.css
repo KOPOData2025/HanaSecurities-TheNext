@@ -443,6 +443,11 @@
   gap: 8px;
 }
 
+.main-tabs.foreign-tabs {
+  justify-content: space-evenly;
+  gap: 0;
+}
+
 .main-tabs::-webkit-scrollbar {
   display: none;
 }

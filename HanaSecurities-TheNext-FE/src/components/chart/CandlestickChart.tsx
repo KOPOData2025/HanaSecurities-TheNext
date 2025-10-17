@@ -21,9 +21,10 @@ interface CandlestickChartProps {
   data: CandleData[];
   period: string;
   timeRange: string;
+  isForeignStock?: boolean;
 }
 
-const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeRange }) => {
+const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeRange, isForeignStock = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number; data: CandleData; canvasX: number; canvasY: number } | null>(null);
@@ -156,17 +157,25 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeR
     const highIndex = data.indexOf(highestCandle);
     const lowIndex = data.indexOf(lowestCandle);
 
-    
+    // 현재가(가장 최근 캔들의 종가)
+    const currentPrice = data[data.length - 1].close;
+
+
     const xHigh = padding.left + highIndex * candleSpacing + candleSpacing / 2;
     const yHighMark = padding.top + ((maxPrice - highestCandle.high) / priceRange) * chartHeight;
 
-    
+
     const highDate = highestCandle.date;
     const highMonth = highDate.slice(5, 7);
     const highDay = highDate.slice(8, 10);
-    const highChangeRate = (highestCandle as any).changeRate || 0;
+    const highChangeRate = ((highestCandle.high - currentPrice) / currentPrice) * 100;
     const highChangeSign = highChangeRate >= 0 ? '+' : '';
-    const highText = `${highestCandle.high.toLocaleString()}원(${highChangeSign}${highChangeRate.toFixed(1)}%, ${highMonth}.${highDay} 09:33)`;
+
+    // Format price based on stock type
+    const highPriceText = isForeignStock
+      ? highestCandle.high.toFixed(2)
+      : `${highestCandle.high.toLocaleString()}원`;
+    const highText = `${highPriceText}(${highChangeSign}${highChangeRate.toFixed(1)}%, ${highMonth}.${highDay} 09:33)`;
 
     ctx.fillStyle = '#D64442';
     ctx.font = '12px sans-serif';
@@ -190,13 +199,18 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeR
     const xLow = padding.left + lowIndex * candleSpacing + candleSpacing / 2;
     const yLowMark = padding.top + ((maxPrice - lowestCandle.low) / priceRange) * chartHeight;
 
-    
+
     const lowDate = lowestCandle.date;
     const lowMonth = lowDate.slice(5, 7);
     const lowDay = lowDate.slice(8, 10);
-    const lowChangeRate = (lowestCandle as any).changeRate || 0;
+    const lowChangeRate = ((lowestCandle.low - currentPrice) / currentPrice) * 100;
     const lowChangeSign = lowChangeRate >= 0 ? '+' : '';
-    const lowText = `${lowestCandle.low.toLocaleString()}원(${lowChangeSign}${lowChangeRate.toFixed(1)}%, ${lowMonth}.${lowDay} 09:33)`;
+
+    // Format price based on stock type
+    const lowPriceText = isForeignStock
+      ? lowestCandle.low.toFixed(2)
+      : `${lowestCandle.low.toLocaleString()}원`;
+    const lowText = `${lowPriceText}(${lowChangeSign}${lowChangeRate.toFixed(1)}%, ${lowMonth}.${lowDay} 09:33)`;
 
     ctx.fillStyle = '#3B7DD8';
     ctx.font = '12px sans-serif';
@@ -216,20 +230,30 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeR
       ctx.fillText(lowText, lowTextX, yLowMark + 15);
     }
 
-    
+
     ctx.fillStyle = '#555';
     ctx.font = '11px sans-serif';
     ctx.textAlign = 'right';
 
-    
-    const priceStep = Math.round(priceRange / 8 / 500) * 500; 
-    const basePrice = Math.round(minPrice / 500) * 500;
-
-    for (let i = 0; i <= 8; i++) {
-      const price = basePrice + priceStep * i;
-      if (price <= maxPrice && price >= minPrice) {
+    if (isForeignStock) {
+      // 해외 주식: 소수점 2자리로 표시
+      const priceStep = priceRange / 8;
+      for (let i = 0; i <= 8; i++) {
+        const price = minPrice + priceStep * i;
         const y = padding.top + ((maxPrice - price) / priceRange) * chartHeight;
-        ctx.fillText(price.toLocaleString(), rect.width - 10, y + 4);
+        ctx.fillText(price.toFixed(2), rect.width - 10, y + 4);
+      }
+    } else {
+      // 국내 주식: 500원 단위로 표시
+      const priceStep = Math.round(priceRange / 8 / 500) * 500;
+      const basePrice = Math.round(minPrice / 500) * 500;
+
+      for (let i = 0; i <= 8; i++) {
+        const price = basePrice + priceStep * i;
+        if (price <= maxPrice && price >= minPrice) {
+          const y = padding.top + ((maxPrice - price) / priceRange) * chartHeight;
+          ctx.fillText(price.toLocaleString(), rect.width - 10, y + 4);
+        }
       }
     }
 
@@ -393,10 +417,10 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({ data, period, timeR
           }}
         >
           <div>날짜: {tooltip.data.date}</div>
-          <div>시가: {tooltip.data.open.toLocaleString()}원</div>
-          <div>고가: {tooltip.data.high.toLocaleString()}원</div>
-          <div>저가: {tooltip.data.low.toLocaleString()}원</div>
-          <div>종가: {tooltip.data.close.toLocaleString()}원</div>
+          <div>시가: {isForeignStock ? tooltip.data.open.toFixed(2) : `${tooltip.data.open.toLocaleString()}원`}</div>
+          <div>고가: {isForeignStock ? tooltip.data.high.toFixed(2) : `${tooltip.data.high.toLocaleString()}원`}</div>
+          <div>저가: {isForeignStock ? tooltip.data.low.toFixed(2) : `${tooltip.data.low.toLocaleString()}원`}</div>
+          <div>종가: {isForeignStock ? tooltip.data.close.toFixed(2) : `${tooltip.data.close.toLocaleString()}원`}</div>
           <div>거래량: {(tooltip.data.volume / 1000).toFixed(0)}K</div>
           {tooltip.data.changeRate !== undefined && (
             <div style={{ color: tooltip.data.changeRate >= 0 ? '#ff4444' : '#4444ff' }}>

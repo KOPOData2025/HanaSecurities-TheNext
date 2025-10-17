@@ -1,0 +1,277 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.foreign-watchlist-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  max-width: 428px;
+  margin: 0 auto;
+}
+
+/* Header */
+.foreign-watchlist-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.foreign-back-btn,
+.foreign-more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #000;
+}
+
+.foreign-page-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Content */
+.foreign-watchlist-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+/* Stats Bar */
+.foreign-stats-bar {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.foreign-stats-count {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Stock List */
+.foreign-stock-list {
+  padding: 0;
+}
+
+.foreign-stock-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.foreign-stock-item:hover {
+  background-color: #f9f9f9;
+}
+
+.foreign-stock-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.foreign-stock-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.foreign-stock-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.foreign-stock-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.foreign-stock-code {
+  font-size: 13px;
+  color: #999;
+}
+
+.foreign-stock-exchange-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+}
+
+.foreign-remove-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.foreign-remove-btn:hover {
+  color: #d32f2f;
+}
+
+.foreign-stock-price-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foreign-stock-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.foreign-stock-price.up {
+  color: #d32f2f;
+}
+
+.foreign-stock-price.down {
+  color: #1976d2;
+}
+
+.foreign-stock-price.neutral {
+  color: #000;
+}
+
+.foreign-stock-change-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.foreign-change-arrow {
+  font-size: 12px;
+}
+
+.foreign-change-arrow.up {
+  color: #d32f2f;
+}
+
+.foreign-change-arrow.down {
+  color: #1976d2;
+}
+
+.foreign-change-arrow.neutral {
+  color: #666;
+}
+
+.foreign-change-rate {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.foreign-change-rate.up {
+  color: #d32f2f;
+}
+
+.foreign-change-rate.down {
+  color: #1976d2;
+}
+
+.foreign-change-rate.neutral {
+  color: #666;
+}
+
+/* 스켈레톤 로딩 */
+.foreign-watchlist-skeleton {
+  padding: 8px 0;
+}
+
+.foreign-skeleton-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.foreign-skeleton-text {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: foreign-skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.foreign-skeleton-title {
+  width: 60%;
+  height: 20px;
+  margin-bottom: 8px;
+}
+
+.foreign-skeleton-subtitle {
+  width: 40%;
+  height: 16px;
+}
+
+@keyframes foreign-skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 빈 상태 */
+.foreign-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.foreign-empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #ccc;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.foreign-empty-text {
+  font-size: 15px;
+  color: #999;
+  margin: 0 0 24px 0;
+}
+
+.foreign-empty-button {
+  padding: 12px 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.foreign-empty-button:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}

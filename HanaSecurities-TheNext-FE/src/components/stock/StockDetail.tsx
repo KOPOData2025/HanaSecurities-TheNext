@@ -18,27 +18,51 @@ import InvestmentOpinionTabSkeleton from './InvestmentOpinionTabSkeleton';
 import StockOrderBookSkeleton from './StockOrderBookSkeleton';
 import './StockDetail.css';
 import { stockApi } from '../../services/stockApi';
-import { transformIntradayToChartData, transformPeriodToChartData, periodToCode, getCurrentInputTime } from '../../utils/chartDataTransformer';
+import { foreignStockApi } from '../../services/foreignStockApi';
+import {
+  transformIntradayToChartData,
+  transformPeriodToChartData,
+  transformForeignIntradayToChartData,
+  transformForeignPeriodToChartData,
+  transformGoldToChartData,
+  periodToCode,
+  getCurrentInputTime
+} from '../../utils/chartDataTransformer';
 import { tradeWebSocket } from '../../services/tradeWebSocket';
+import { foreignQuoteWebSocket } from '../../services/foreignQuoteWebSocket';
+import { goldTradeWebSocket, getGoldCurrentPrice, getGoldMinuteChart, getGoldPeriodChart } from '../../services/goldApi';
 import type { ChartData, InvestOpinionResponse } from '../../types/stock.types';
 import type { RealtimeTradeData } from '../../services/tradeWebSocket';
+import type { ForeignQuoteData } from '../../types/foreignStock.types';
+import type { GoldTradeData } from '../../services/goldApi';
 
 const StockDetail: React.FC = () => {
-  const { code } = useParams<{ code: string }>();
+  // URL 파라미터: 국내 주식은 /stock/:code, 해외 주식은 /stock/:exchangeCode/:stockCode, 금현물은 /stock/gold/:productCode
+  const { code, exchangeCode, stockCode } = useParams<{ code?: string; exchangeCode?: string; stockCode?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
-  const initialStockName = location.state?.stockName || code || '';
+
+  // 상품 타입 판별
+  const isGold = code === 'gold';
+  const isForeignStock = !!exchangeCode && !isGold;
+  const isDomesticStock = !isForeignStock && !isGold;
+  const actualCode = isGold ? stockCode! : (isForeignStock ? stockCode! : code!);
+  const initialStockName = location.state?.stockName || actualCode || '';
 
   const [chartData, setChartData] = useState<ChartData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // 현재가 정보 (stock-info-section용, 최초 1회만 조회)
+  const [stockInfoData, setStockInfoData] = useState<ChartData | null>(null);
+  const [stockInfoLoading, setStockInfoLoading] = useState(false);
 
   const [activeTab, setActiveTab] = useState('차트');
   const [tabLoading, setTabLoading] = useState(false);
   const [activePeriod, setActivePeriod] = useState('일');
   const [activeTimeRange, setActiveTimeRange] = useState('5');
 
-  
+
   const [realtimePrice, setRealtimePrice] = useState<number | null>(null);
   const [realtimePriceChange, setRealtimePriceChange] = useState<number | null>(null);
   const [realtimeChangeRate, setRealtimeChangeRate] = useState<string | null>(null);
@@ -46,18 +70,92 @@ const StockDetail: React.FC = () => {
   
   const [investOpinionData, setInvestOpinionData] = useState<InvestOpinionResponse | null>(null);
 
-  
-  const CHART_REFRESH_INTERVAL = 500; 
 
-  
+  const CHART_REFRESH_INTERVAL = 500;
+
+  // 현재가 정보 조회 (해외주식/금현물: 1초마다 polling, 국내주식: 1회만)
   useEffect(() => {
-    if (!code) return;
+    if (!actualCode) return;
+
+    const fetchStockInfo = async () => {
+      try {
+        if (isGold) {
+          // 금현물: getCurrentPrice API 사용
+          const response = await getGoldCurrentPrice(actualCode);
+          const transformed = transformGoldToChartData(response);
+          setStockInfoData(transformed);
+          if (stockInfoLoading) setStockInfoLoading(false);
+        } else if (isForeignStock) {
+          // 해외 주식: getCurrentPrice API 사용
+          const response = await foreignStockApi.getCurrentPrice(exchangeCode!, actualCode);
+
+          // 현재가와 전일종가 계산
+          const currentPrice = parseFloat(response.last || '0');
+          const basePrice = parseFloat(response.base || '0');
+          const priceChange = currentPrice - basePrice;
+
+          // 등락률 계산 (퍼센트 기호 제거하고 숫자만)
+          let changePercent = response.t_xrat || '0';
+          changePercent = changePercent.replace('%', '').trim();
+
+          // ChartData 형식으로 변환
+          // 해외 주식: totalShares = tvol (거래량이 아닌 총 상장주식수)
+          const stockInfo: ChartData = {
+            stockCode: response.rsym || actualCode,
+            stockName: response.rsym || actualCode,
+            currentPrice: currentPrice,
+            priceChange: priceChange,
+            changePercent: changePercent,
+            totalShares: parseFloat(response.tvol || '0'),  // tvol을 상장주수로 사용
+            indices: [],
+            candleData: [],
+            volumeData: []
+          };
+
+          setStockInfoData(stockInfo);
+          if (stockInfoLoading) setStockInfoLoading(false);
+        } else {
+          // 국내 주식: 분봉 API로 현재가 조회 (1회만)
+          setStockInfoLoading(true);
+          const inputTime = getCurrentInputTime();
+          const response = await stockApi.getIntradayChart(actualCode, inputTime);
+          const transformed = transformIntradayToChartData(response);
+          setStockInfoData(transformed);
+          setStockInfoLoading(false);
+        }
+      } catch (err) {
+        console.error('현재가 조회 실패:', err);
+        if (stockInfoLoading) setStockInfoLoading(false);
+      }
+    };
+
+    // 최초 조회
+    fetchStockInfo();
+
+    // 해외 주식과 금현물은 1초마다 polling
+    let intervalId: NodeJS.Timeout | null = null;
+    if (isForeignStock || isGold) {
+      intervalId = setInterval(() => {
+        fetchStockInfo();
+      }, 1000);
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [actualCode, exchangeCode, isForeignStock, isGold]);
+
+  // 차트 데이터 조회 (기간 변경시마다 조회)
+  useEffect(() => {
+    if (!actualCode) return;
 
     let intervalId: NodeJS.Timeout | null = null;
     let isInitialLoad = true;
 
     const fetchChartData = async () => {
-      
+
       if (isInitialLoad) {
         setLoading(true);
         setError(null);
@@ -66,11 +164,11 @@ const StockDetail: React.FC = () => {
       const loadingStartTime = Date.now();
 
       try {
-        if (activePeriod === '분') {
-          
-          const inputTime = getCurrentInputTime();
-          const response = await stockApi.getIntradayChart(code, inputTime);
-          const transformed = transformIntradayToChartData(response);
+        if (isForeignStock) {
+          // 해외 주식 차트
+          if (activePeriod === '분') {
+            const response = await foreignStockApi.getIntradayChart(exchangeCode!, actualCode, 5);
+            const transformed = transformForeignIntradayToChartData(response);
 
           if (isInitialLoad) {
             
@@ -83,32 +181,62 @@ const StockDetail: React.FC = () => {
               isInitialLoad = false;
             }, remainingTime);
           } else {
-            
             setChartData(transformed);
           }
+          } else {
+            // 해외 주식 기간별 차트
+            const periodCode = periodToCode(activePeriod);
+            const days = activePeriod === '일' ? 30 : activePeriod === '주' ? 20 : activePeriod === '월' ? 20 : 20;
+            const response = await foreignStockApi.getRecentPeriodChart(exchangeCode!, actualCode, days, periodCode);
+            const transformed = transformForeignPeriodToChartData(response);
+
+            if (isInitialLoad) {
+              const elapsedTime = Date.now() - loadingStartTime;
+              const remainingTime = Math.max(0, 700 - elapsedTime);
+              setTimeout(() => {
+                setChartData(transformed);
+                setLoading(false);
+                isInitialLoad = false;
+              }, remainingTime);
+            } else {
+              setChartData(transformed);
+            }
+          }
         } else {
-          
-          const periodCode = periodToCode(activePeriod);
-          const days = activePeriod === '일' ? 30 :
-                      activePeriod === '주' ? 20 :
-                      activePeriod === '월' ? 20 :
-                      20; 
-          const response = await stockApi.getRecentPeriodChart(code, days, periodCode);
-          const transformed = transformPeriodToChartData(response);
+          // 국내 주식 차트
+          if (activePeriod === '분') {
+            const inputTime = getCurrentInputTime();
+            const response = await stockApi.getIntradayChart(actualCode, inputTime);
+            const transformed = transformIntradayToChartData(response);
+
+            if (isInitialLoad) {
+              const elapsedTime = Date.now() - loadingStartTime;
+              const remainingTime = Math.max(0, 700 - elapsedTime);
+              setTimeout(() => {
+                setChartData(transformed);
+                setLoading(false);
+                isInitialLoad = false;
+              }, remainingTime);
+            } else {
+              setChartData(transformed);
+            }
+          } else {
+            const periodCode = periodToCode(activePeriod);
+            const days = activePeriod === '일' ? 30 : activePeriod === '주' ? 20 : activePeriod === '월' ? 20 : 20;
+            const response = await stockApi.getRecentPeriodChart(actualCode, days, periodCode);
+            const transformed = transformPeriodToChartData(response);
 
           if (isInitialLoad) {
-            
-            const elapsedTime = Date.now() - loadingStartTime;
-            const remainingTime = Math.max(0, 700 - elapsedTime);
-
-            setTimeout(() => {
+              const elapsedTime = Date.now() - loadingStartTime;
+              const remainingTime = Math.max(0, 700 - elapsedTime);
+              setTimeout(() => {
+                setChartData(transformed);
+                setLoading(false);
+                isInitialLoad = false;
+              }, remainingTime);
+            } else {
               setChartData(transformed);
-              setLoading(false);
-              isInitialLoad = false;
-            }, remainingTime);
-          } else {
-            
-            setChartData(transformed);
+            }
           }
         }
       } catch (err) {
@@ -116,51 +244,58 @@ const StockDetail: React.FC = () => {
           setError('차트 데이터를 불러오는데 실패했습니다.');
           setLoading(false);
         }
-        
       }
     };
 
-    
     fetchChartData();
 
-    
     intervalId = setInterval(() => {
       fetchChartData();
     }, CHART_REFRESH_INTERVAL);
 
-    
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
       }
     };
-  }, [code, activePeriod, CHART_REFRESH_INTERVAL]);
+  }, [actualCode, exchangeCode, isForeignStock, activePeriod, CHART_REFRESH_INTERVAL]);
 
-  
+
   useEffect(() => {
-    if (!code) return;
+    if (!actualCode) return;
 
     const connectAndSubscribe = async () => {
       try {
-        if (!tradeWebSocket.isConnected()) {
-          await tradeWebSocket.connect();
+        if (isForeignStock) {
+          // 해외 주식 WebSocket - 체결가 구독
+          if (!foreignQuoteWebSocket.isConnected()) {
+            await foreignQuoteWebSocket.connect();
+          }
+          foreignQuoteWebSocket.subscribe(exchangeCode!, actualCode, 'trade', handleForeignQuoteUpdate);
+        } else {
+          // 국내 주식 WebSocket
+          if (!tradeWebSocket.isConnected()) {
+            await tradeWebSocket.connect();
+          }
+          tradeWebSocket.subscribe(actualCode, handleTradeUpdate);
         }
-        tradeWebSocket.subscribe(code, handleTradeUpdate);
       } catch (error) {
-        
+        console.error('WebSocket 연결 실패:', error);
       }
     };
 
     connectAndSubscribe();
 
     return () => {
-      if (code) {
-        tradeWebSocket.unsubscribe(code);
+      if (isForeignStock) {
+        foreignQuoteWebSocket.unsubscribe(exchangeCode!, actualCode, 'trade');
+      } else {
+        tradeWebSocket.unsubscribe(actualCode);
       }
     };
-  }, [code]);
+  }, [actualCode, exchangeCode, isForeignStock]);
 
-  
+  // 국내 주식 실시간 업데이트 핸들러
   const handleTradeUpdate = (data: RealtimeTradeData) => {
     if (data.type === 'trade' && data.data) {
       const tradeData = data.data;
@@ -175,13 +310,28 @@ const StockDetail: React.FC = () => {
     }
   };
 
-  
+  // 해외 주식 실시간 업데이트 핸들러
+  const handleForeignQuoteUpdate = (data: any) => {
+    console.log('[해외주식 WebSocket] 수신 데이터:', data);
+
+    // currentPrice가 있으면 사용 (백엔드가 currentPrice로 보냄)
+    if (data.currentPrice) {
+      setRealtimePrice(parseFloat(data.currentPrice));
+    }
+    // changeRate가 있으면 사용
+    if (data.changeRate && data.changeRate !== "0") {
+      setRealtimeChangeRate(data.changeRate);
+    }
+  };
+
+
   useEffect(() => {
-    if (!code) return;
+    // 국내 주식일 때만 투자의견 로드
+    if (!actualCode || isForeignStock) return;
 
     const fetchInvestOpinion = async () => {
       try {
-        const response = await stockApi.getInvestOpinion(code);
+        const response = await stockApi.getInvestOpinion(actualCode);
         setInvestOpinionData(response);
       } catch (error) {
         console.error('투자의견 조회 실패:', error);
@@ -189,7 +339,7 @@ const StockDetail: React.FC = () => {
     };
 
     fetchInvestOpinion();
-  }, [code]);
+  }, [actualCode, isForeignStock]);
 
   
   const getInvestmentOpinionData = () => {
@@ -246,8 +396,13 @@ const StockDetail: React.FC = () => {
 
   const investmentData = getInvestmentOpinionData();
 
-  const mainTabs = ['개요', '호가', '차트', '재무정보', '투자의견'];
-  const periodTabs = ['분', '일', '주', '월', '년'];
+  // 해외 주식은 투자의견/재무정보 없음, 년봉 차트 없음
+  const mainTabs = isForeignStock
+    ? ['개요', '호가', '차트']
+    : ['개요', '호가', '차트', '재무정보', '투자의견'];
+  const periodTabs = isForeignStock
+    ? ['분', '일', '주', '월']
+    : ['분', '일', '주', '월', '년'];
 
   
   const handleTabChange = (tab: string) => {
@@ -267,8 +422,9 @@ const StockDetail: React.FC = () => {
     }, 50); 
   };
 
-  
-  if (loading && !chartData) {
+
+  // 초기 로딩: 현재가 정보와 차트 데이터 둘 다 없을 때
+  if ((stockInfoLoading && !stockInfoData) || (loading && !chartData)) {
     return (
       <div className="stock-detail-page">
         <PageHeader
@@ -326,7 +482,7 @@ const StockDetail: React.FC = () => {
     );
   }
 
-  if (!chartData) {
+  if (!chartData || !stockInfoData) {
     return (
       <div className="stock-detail-page">
         <PageHeader
@@ -380,18 +536,23 @@ const StockDetail: React.FC = () => {
         }
       />
 
-      {/* Stock Info Section - Reused from OrderPage */}
-      <StockInfoSection
-        stockData={{
-          ...chartData,
-          currentPrice: realtimePrice ?? chartData.currentPrice,
-          priceChange: realtimePriceChange ?? chartData.priceChange,
-          changePercent: realtimeChangeRate ?? chartData.changePercent,
-        }}
-      />
+      {/* Stock Info Section - 현재가 정보 (최초 1회 조회, 실시간 업데이트) */}
+      {stockInfoData && (
+        <StockInfoSection
+          stockData={{
+            ...stockInfoData,
+            currentPrice: realtimePrice ?? stockInfoData.currentPrice,
+            priceChange: realtimePriceChange ?? stockInfoData.priceChange,
+            changePercent: realtimeChangeRate ?? stockInfoData.changePercent,
+          }}
+          exchangeCode={exchangeCode}
+          isForeignStock={isForeignStock}
+          classPrefix="stock-detail"
+        />
+      )}
 
       {/* Main Tabs */}
-      <div className="main-tabs">
+      <div className={`main-tabs ${isForeignStock ? 'foreign-tabs' : ''}`}>
         {mainTabs.map((tab) => (
           <button
             key={tab}
@@ -456,6 +617,7 @@ const StockDetail: React.FC = () => {
                   data={chartData.candleData}
                   period={activePeriod}
                   timeRange={activeTimeRange}
+                  isForeignStock={isForeignStock}
                 />
               </div>
 
@@ -471,7 +633,11 @@ const StockDetail: React.FC = () => {
           </div>
         ) : activeTab === '개요' ? (
           <div className="tab-content overview-content">
-            <StockOverview />
+            <StockOverview
+              isForeignStock={isForeignStock}
+              exchangeCode={exchangeCode}
+              stockCode={actualCode}
+            />
           </div>
         ) : activeTab === '호가' ? (
           <div className="tab-content orderbook-tab-content">

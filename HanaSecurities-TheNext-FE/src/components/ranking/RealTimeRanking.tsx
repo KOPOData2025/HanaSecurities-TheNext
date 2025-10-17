@@ -111,32 +111,50 @@ const RealTimeRanking: React.FC<RealTimeRankingProps> = ({
     };
   };
 
-  
+
   const convertForeignToRankingItem = (stock: ForeignStockRankItem, exchangeCode: ForeignExchangeCode): RankingItem => {
-    
+
     const isPositive = activeTab === '하락' ? false : (stock.changeSign === '2' || stock.changeSign === '1');
 
-    
+    /**
+     * 거래소별 소수점 자릿수 결정
+     * - 도쿄(TSE): 0자리 (엔화)
+     * - 중국(SHS/SZS): 0자리 (위안화)
+     * - 베트남(HSX/HNX): 0자리 (동화)
+     * - 홍콩(HKS): 2자리 (홍콩달러)
+     * - 미국(NYS/NAS/AMS): 2자리 (달러)
+     */
+    const getDecimalPlaces = (exchange: ForeignExchangeCode): number => {
+      if (exchange.match(/^(TSE|TKSE|SHS|SZS|HSX|HNX)$/)) {
+        return 0;
+      }
+      return 2;
+    };
+
     const getCurrency = (exchange: ForeignExchangeCode): string => {
       if (exchange === 'TSE') return '엔';
-      return '달러'; 
+      if (exchange === 'HKS') return '홍콩달러';
+      if (exchange.match(/^(SHS|SZS)$/)) return '위안';
+      if (exchange.match(/^(HSX|HNX)$/)) return '동';
+      return '달러';
     };
 
     const currency = getCurrency(exchangeCode);
+    const decimalPlaces = getDecimalPlaces(exchangeCode);
 
-    
+
     const formatPrice = (price: string) => {
       const num = parseFloat(price);
-      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + currency;
+      return num.toLocaleString('en-US', { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces }) + currency;
     };
 
-    
+
     const formatChange = (change: string) => {
       const num = Math.abs(parseFloat(change));
-      return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return num.toLocaleString('en-US', { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
     };
 
-    
+
     const formatChangePercent = (rate: string) => {
       const num = Math.abs(parseFloat(rate));
       return `${isPositive ? '+' : '-'}${num.toFixed(2)}%`;
@@ -296,10 +314,22 @@ const RealTimeRanking: React.FC<RealTimeRankingProps> = ({
     return countryEmojis[country] || "";
   };
 
+  /**
+   * 주식 종목 클릭 핸들러
+   * - 해외 주식: /stock/:exchangeCode/:stockCode
+   * - 국내 주식: /stock/:code
+   */
   const handleStockClick = (code: string, name: string) => {
-    navigate(`/stock/${code}`, {
-      state: { stockName: name }
-    });
+    if (showCountrySelector) {
+      // 해외 주식: exchangeCode와 stockCode 필요
+      const exchangeCode = getExchangeCode(activeCountry);
+      navigate(`/stock/${exchangeCode}/${code}`);
+    } else {
+      // 국내 주식
+      navigate(`/stock/${code}`, {
+        state: { stockName: name }
+      });
+    }
   };
 
   return (

@@ -3,10 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './StockOrderBook.css';
 import { quoteWebSocket } from '../../services/quoteWebSocket';
 import { tradeWebSocket } from '../../services/tradeWebSocket';
+import { foreignQuoteWebSocket } from '../../services/foreignQuoteWebSocket';
 import StockOrderBookSkeleton from './StockOrderBookSkeleton';
 
 import type {RealtimeQuoteData} from '../../services/quoteWebSocket';
 import type {RealtimeTradeData} from '../../services/tradeWebSocket';
+import type {ForeignQuoteData} from '../../types/foreignStock.types';
 
 interface Transaction {
   price: number;
@@ -26,7 +28,11 @@ interface StockOrderBookProps {
 
 const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
   const navigate = useNavigate();
-  const { code } = useParams<{ code: string }>();
+  const { code, exchangeCode, stockCode } = useParams<{ code?: string; exchangeCode?: string; stockCode?: string }>();
+
+  // 해외 주식 여부 판별
+  const isForeignStock = !!exchangeCode;
+  const actualStockCode = isForeignStock ? stockCode! : code!;
 
   const [selectedPrice, setSelectedPrice] = useState<number | null>(null);
   const [selectedChangeRate, setSelectedChangeRate] = useState<string | null>(null);
@@ -96,39 +102,48 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
     return () => clearInterval(timer);
   }, []);
 
-  
-  useEffect(() => {
-    if (!code) return;
 
-    
+  useEffect(() => {
+    if (!actualStockCode) return;
+
+
     const connectAndSubscribe = async () => {
       try {
-        
-        if (!quoteWebSocket.isConnected()) {
-          await quoteWebSocket.connect();
-        }
-        quoteWebSocket.subscribe(code, handleQuoteUpdate);
+        if (isForeignStock) {
+          // 해외 주식: quote 타입으로 호가 구독
+          if (!foreignQuoteWebSocket.isConnected()) {
+            await foreignQuoteWebSocket.connect();
+          }
+          foreignQuoteWebSocket.subscribe(exchangeCode!, actualStockCode, 'quote', handleForeignQuoteUpdate);
+        } else {
+          // 국내 주식: 호가 + 체결 WebSocket
+          if (!quoteWebSocket.isConnected()) {
+            await quoteWebSocket.connect();
+          }
+          quoteWebSocket.subscribe(actualStockCode, handleQuoteUpdate);
 
-        
-        if (!tradeWebSocket.isConnected()) {
-          await tradeWebSocket.connect();
+          if (!tradeWebSocket.isConnected()) {
+            await tradeWebSocket.connect();
+          }
+          tradeWebSocket.subscribe(actualStockCode, handleTradeUpdate);
         }
-        tradeWebSocket.subscribe(code, handleTradeUpdate);
       } catch (error) {
-        
+        // WebSocket 연결 실패는 조용히 무시
       }
     };
 
     connectAndSubscribe();
 
-    
+
     return () => {
-      if (code) {
-        quoteWebSocket.unsubscribe(code);
-        tradeWebSocket.unsubscribe(code);
+      if (isForeignStock) {
+        foreignQuoteWebSocket.unsubscribe(exchangeCode!, actualStockCode, 'quote');
+      } else {
+        quoteWebSocket.unsubscribe(actualStockCode);
+        tradeWebSocket.unsubscribe(actualStockCode);
       }
     };
-  }, [code]);
+  }, [actualStockCode, exchangeCode, isForeignStock]);
 
   
   const handleQuoteUpdate = useCallback((data: RealtimeQuoteData) => {
@@ -156,12 +171,12 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
     }
   }, []);
 
-  
+
   const handleTradeUpdate = (data: RealtimeTradeData) => {
     if (data.type === 'trade' && data.data) {
       const tradeData = data.data;
 
-      
+
       const currentPriceNum = parseInt(tradeData.currentPrice);
       const priceChangeNum = parseInt(tradeData.priceChange);
 
@@ -169,23 +184,23 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
       setPriceChange(tradeData.priceChange);
       setChangeRate(tradeData.changeRate);
 
-      
+
       setTradeStrength(tradeData.tradeStrength);
 
-      
+
       setOpenPrice(tradeData.openPrice);
       setHighPrice(tradeData.highPrice);
       setLowPrice(tradeData.lowPrice);
 
-      
+
       const prevClose = currentPriceNum - priceChangeNum;
       setPreviousClosePrice(prevClose);
 
-      
+
       setUpperLimit(String(Math.floor(prevClose * 1.3)));
       setLowerLimit(String(Math.floor(prevClose * 0.7)));
 
-      
+
       const newTransaction: Transaction = {
         price: currentPriceNum,
         quantity: parseInt(tradeData.tradeVolume),
@@ -194,10 +209,18 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
 
       setTransactions(prev => {
         const updated = [newTransaction, ...prev];
-        return updated.slice(0, 15); 
+        return updated.slice(0, 15);
       });
 
       setIsLoading(false);
+    }
+  };
+
+  // 해외 주식 호가 데이터 업데이트 핸들러
+  const handleForeignQuoteUpdate = (data: ForeignQuoteData) => {
+    // 해외 주식은 호가 데이터가 없으므로 현재가 정보만 업데이트
+    if (data.last) {
+      setCurrentPrice(parseFloat(data.last));
     }
   };
 
@@ -247,7 +270,34 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
     lowChangeRate: calculateOHLCChangeRate(lowPrice),
   };
 
+  /**
+   * 거래소별 소수점 자릿수 결정
+   * - 도쿄(TSE/TKSE): 0자리 (엔화)
+   * - 중국(SHS/SZS): 0자리 (위안화)
+   * - 베트남(HSX/HNX): 0자리 (동화)
+   * - 홍콩(HKS/SEHK): 2자리 (홍콩달러)
+   * - 미국(NAS/NYS/AMS): 2자리 (달러)
+   */
+  const getDecimalPlaces = (exchangeCode?: string): number => {
+    if (!exchangeCode) return 0;
+
+    const code = exchangeCode.toUpperCase();
+    // 소수점 없는 통화 (정수 표시)
+    if (code.match(/^(TSE|TKSE|SHS|SZS|HSX|HNX)$/)) {
+      return 0;
+    }
+    // 소수점 2자리 통화
+    return 2;
+  };
+
   const formatPrice = (price: number) => {
+    if (isForeignStock) {
+      const decimalPlaces = getDecimalPlaces(exchangeCode);
+      return price.toLocaleString('en-US', {
+        minimumFractionDigits: decimalPlaces,
+        maximumFractionDigits: decimalPlaces
+      });
+    }
     return price.toLocaleString('ko-KR');
   };
 
@@ -277,12 +327,12 @@ const StockOrderBook: React.FC<StockOrderBookProps> = ({ stockName }) => {
   };
 
   const handleBuyClick = () => {
-    navigate('/order', { state: { type: 'buy', price: selectedPrice, stockCode: code, stockName } });
+    navigate('/order', { state: { type: 'buy', price: selectedPrice, stockCode: actualStockCode, stockName } });
     handleClose();
   };
 
   const handleSellClick = () => {
-    navigate('/order', { state: { type: 'sell', price: selectedPrice, stockCode: code, stockName } });
+    navigate('/order', { state: { type: 'sell', price: selectedPrice, stockCode: actualStockCode, stockName } });
     handleClose();
   };
 

@@ -1,0 +1,154 @@
+.gold-detail {
+  padding: 20px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.gold-detail-loading {
+  padding: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+.gold-info-section {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.gold-codes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.code-primary {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.code-secondary {
+  font-size: 14px;
+  color: #666;
+}
+
+.gold-price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.gold-current-price {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gold-price-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.gold-price-value.up { color: #e22926; }
+.gold-price-value.down { color: #1261c4; }
+.gold-price-value.neutral { color: #333; }
+
+.gold-price-change {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.gold-price-change.up { color: #e22926; }
+.gold-price-change.down { color: #1261c4; }
+.gold-price-change.neutral { color: #666; }
+
+.gold-arrow {
+  font-size: 14px;
+}
+
+.gold-volume {
+  font-size: 14px;
+  color: #666;
+}
+
+.gold-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-button.active {
+  color: #00857d;
+  border-bottom-color: #00857d;
+}
+
+.tab-button:hover:not(.active) {
+  color: #333;
+  background: #f8f8f8;
+}
+
+.gold-overview {
+  padding: 20px 0;
+}
+
+.gold-overview h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.gold-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.info-item .label {
+  font-size: 14px;
+  color: #666;
+}
+
+.info-item .value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 금현물 메인 탭 스타일 (3개 탭만 있어서 간격을 넓게) */
+.gold-main-tabs {
+  justify-content: space-around;
+  gap: 0;
+}
+
+.gold-main-tab {
+  flex: 0 0 auto;
+  min-width: 80px;
+  padding: 14px 24px;
+  font-size: 15px;
+}

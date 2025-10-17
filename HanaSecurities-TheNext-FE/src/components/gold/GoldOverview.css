@@ -1,0 +1,155 @@
+/* GoldOverview.css - 금현물 개요 탭 스타일 */
+
+.gold-overview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* 서브 탭 스타일 */
+.gold-sub-tabs {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #333;
+  gap: 6px;
+}
+
+.gold-sub-tab {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #999;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gold-sub-tab.active {
+  color: #333;
+  border-color: #333;
+}
+
+.gold-sub-tab-link {
+  margin-left: auto;
+  font-size: 13px;
+  color: #999;
+  text-decoration: none;
+}
+
+/* 테이블 컨테이너 */
+.gold-overview-table-container {
+  flex: 1;
+  overflow-y: auto;
+  background: #ffffff;
+  min-height: 0;
+}
+
+/* 테이블 스타일 */
+.gold-overview-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gold-overview-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.gold-overview-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.gold-overview-table td {
+  padding: 14px 15px;
+  font-size: 16px;
+}
+
+.gold-overview-table td.gold-label {
+  width: 45%;
+  color: #666;
+  background-color: #f9f9f9;
+  font-weight: 400;
+}
+
+.gold-overview-table td.gold-value {
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* 가격 정보 스타일 */
+.gold-price-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.gold-price-info .gold-price {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.gold-price-info .gold-price.high-price {
+  color: #f44336;
+}
+
+.gold-price-info .gold-price.low-price {
+  color: #2196f3;
+}
+
+.gold-price-info .gold-change {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.gold-price-info .gold-change.positive {
+  color: #f44336;
+}
+
+.gold-price-info .gold-change.negative {
+  color: #2196f3;
+}
+
+/* 빈 콘텐츠 스타일 */
+.gold-ir-info-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.gold-empty-content {
+  text-align: center;
+  padding: 40px;
+}
+
+.gold-empty-content p {
+  color: #999;
+  font-size: 14px;
+}
+
+/* 스크롤바 스타일 */
+.gold-overview-table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gold-overview-table-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.gold-overview-table-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.gold-overview-table-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

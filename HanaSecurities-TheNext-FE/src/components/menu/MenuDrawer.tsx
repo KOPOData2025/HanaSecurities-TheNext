@@ -144,8 +144,14 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({ isOpen, onClose }) => {
     } else if (item.label === '이용내역 조회') {
       navigate('/bnpl-usage');
       onClose();
-    } else if (item.label === '국내주식 관심종목' || item.label === '해외주식 관심종목') {
+    } else if (item.label === '국내주식 관심종목') {
       navigate('/watchlist');
+      onClose();
+    } else if (item.label === '해외주식 관심종목') {
+      navigate('/foreign-watchlist');
+      onClose();
+    } else if (item.label === '해외주식 현재가') {
+      navigate('/foreign-search');
       onClose();
     }
   };

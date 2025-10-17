@@ -32,6 +32,16 @@ yarn-error.log*
 node_modules/
 vendor/
 
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
 # Environment variables
 .env
 .env.local
@@ -53,3 +63,65 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+bin/
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.class
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 환경 변수 파일 (중요!)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# 로그 파일
+logs/
+*.log
+*.log.*
+
+# 임시 파일
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Claude & 개발 도구
+.claude/
+claudedocs/
+scripts/
+
+# 데이터베이스
+*.db
+*.sqlite
+*.sqlite3
+
+# 기타
+.cache/
+.npm/
+.pnp/
